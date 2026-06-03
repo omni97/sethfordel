@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#1b1a4b;        /* Nachtblauw */
+    --night:#1b1a4b;
     --night-2:#13123a;
-    --blue:#2d4bff;         /* helder blauw */
-    --red:#ff4e3a;          /* rood / koraal */
-    --mint:#13cca1;         /* muntgroen */
-    --yellow:#ffc63d;       /* zonnegeel accent */
+    --blue:#2d4bff;
+    --red:#ff4e3a;
+    --mint:#13cca1;
+    --yellow:#ffc63d;
     --white:#ffffff;
-    --paper:#f3f2fb;        /* zacht gebroken wit */
+    --paper:#f3f2fb;
     --paper-2:#fbfbff;
     --ink:#1b1a4b;
     --muted:#5a5a86;
@@ -39,11 +39,9 @@
   ::selection{background:var(--yellow);color:var(--night)}
   .bb{color:#ed8b00;font-weight:700}
 
-  /* ---------- scroll progress ---------- */
   #progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:200;
     background:linear-gradient(90deg,var(--blue),var(--mint),var(--red),var(--yellow));}
 
-  /* ---------- header ---------- */
   header{position:fixed;top:0;left:0;right:0;z-index:160;
     background:rgba(251,251,255,.82);backdrop-filter:blur(14px);
     border-bottom:1px solid rgba(27,26,75,.08);transition:transform .4s var(--ease)}
@@ -65,7 +63,6 @@
   .nav-cta:hover{background:var(--mint)!important;filter:brightness(1.04)}
   .burger{display:none;margin-left:auto;background:var(--night);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:800;font-family:inherit;cursor:pointer}
 
-  /* ---------- side dot nav ---------- */
   .dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:12px}
   .dots button{width:12px;height:12px;border-radius:50%;border:2px solid var(--night);background:transparent;cursor:pointer;padding:0;transition:.25s var(--ease);position:relative}
   .dots button.on{background:var(--red);border-color:var(--red);transform:scale(1.25)}
@@ -74,7 +71,6 @@
   .dots button:hover::after{opacity:1}
   @media(max-width:900px){.dots{display:none}}
 
-  /* ---------- layout ---------- */
   section{position:relative;padding:118px 26px;overflow:hidden}
   .wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
@@ -85,15 +81,12 @@
   .dark .lead{color:#b9b9e6}
   .dark h2,.dark h3{color:#fff}
 
-  /* reveal */
   .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .reveal.in{opacity:1;transform:none}
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
 
-  /* ---------- decorative shapes ---------- */
   .shape{position:absolute;z-index:0;pointer-events:none}
 
-  /* ============ HERO ============ */
   #start{padding-top:190px;padding-bottom:120px;min-height:100vh;display:flex;align-items:center;
     background:radial-gradient(120% 90% at 85% 10%,#fff 0%,var(--paper) 60%)}
   .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:50px;align-items:center}
@@ -129,17 +122,15 @@
   .float{animation:float 7s ease-in-out infinite}
   @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(6deg)}}
 
-  /* ============ MINDSET / quote ============ */
   #mindset{background:var(--night);color:#fff}
   .bigquote{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(28px,4.6vw,58px);line-height:1.08;letter-spacing:-.02em;max-width:1000px}
   .bigquote .hl{color:var(--yellow)}
   .bigquote .hl2{color:var(--mint)}
   .bigquote .hl3{color:var(--red)}
   .quote-foot{margin-top:34px;display:flex;align-items:center;gap:16px}
-  .quote-foot .avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:20px;color:#fff}
+  .quote-foot .avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:20px;color:#fff;flex-shrink:0}
   .quote-foot small{display:block;color:#b9b9e6;font-weight:600}
 
-  /* ============ generic cards ============ */
   .grid{display:grid;gap:22px}
   .card{background:#fff;border-radius:var(--r);padding:30px;border:1px solid rgba(27,26,75,.07);
     box-shadow:0 18px 40px rgba(27,26,75,.05);transition:.3s var(--ease)}
@@ -149,29 +140,26 @@
   .card p{color:var(--muted);font-size:15px}
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
   .chip{background:var(--paper);border:1px solid rgba(27,26,75,.1);border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;color:var(--night);display:inline-flex;gap:8px;align-items:center}
-  .chip .d{width:8px;height:8px;border-radius:50%}
+  .chip .d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-  /* ============ stats ============ */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
   .stat{background:#fff;border-radius:var(--r);padding:26px;text-align:center;border:1px solid rgba(27,26,75,.07)}
   .stat .num{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(34px,5vw,56px);line-height:1;color:var(--night)}
   .stat .lab{margin-top:8px;font-weight:700;color:var(--muted);font-size:13.5px}
   .stat.c1 .num{color:var(--blue)}.stat.c2 .num{color:var(--red)}.stat.c3 .num{color:var(--mint)}.stat.c4 .num{color:#e0a800}
 
-  /* ============ project ============ */
   .project{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:stretch}
   .browser{background:#fff;border-radius:20px;border:1px solid rgba(27,26,75,.1);overflow:hidden;box-shadow:0 30px 70px rgba(27,26,75,.14)}
   .browser .bar{display:flex;align-items:center;gap:7px;padding:13px 16px;background:var(--paper);border-bottom:1px solid rgba(27,26,75,.08)}
-  .browser .bar i{width:11px;height:11px;border-radius:50%}
-  .browser .url{margin-left:12px;background:#fff;border:1px solid rgba(27,26,75,.12);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--blue);flex:1}
+  .browser .bar i{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+  .browser .url{margin-left:12px;background:#fff;border:1px solid rgba(27,26,75,.12);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--blue);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .browser .screen{padding:38px 30px;background:linear-gradient(150deg,var(--night),#262463);color:#fff;min-height:260px;display:flex;flex-direction:column;justify-content:center;gap:14px}
   .browser .screen .vbr{display:inline-block;background:var(--mint);color:var(--night);font-weight:800;font-size:12px;padding:5px 12px;border-radius:8px;width:max-content}
-  .browser .screen h4{font-family:"Bricolage Grotesque";font-size:30px}
+  .browser .screen h4{font-family:"Bricolage Grotesque";font-size:clamp(20px,3.5vw,30px)}
   .browser .screen p{color:#c2c2ec;font-size:14.5px}
   .browser .screen .mini{display:flex;gap:8px;margin-top:6px}
   .browser .screen .mini span{height:8px;border-radius:6px;background:rgba(255,255,255,.22)}
 
-  /* ============ skills ============ */
   .skill{margin-bottom:24px}
   .skill .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
   .skill .top b{font-family:"Bricolage Grotesque";font-size:19px}
@@ -179,17 +167,15 @@
   .track{height:14px;border-radius:99px;background:var(--paper);overflow:hidden;border:1px solid rgba(27,26,75,.08)}
   .fill{height:100%;width:0;border-radius:99px;transition:width 1.3s var(--ease)}
 
-  /* ============ sterktes grid (zonder %) ============ */
   .strengths{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .strength{position:relative;background:#fff;border-radius:18px;padding:24px;border:1px solid rgba(27,26,75,.08);
     box-shadow:0 14px 34px rgba(27,26,75,.05);transition:.3s var(--ease);overflow:hidden}
   .strength:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(27,26,75,.13)}
   .strength::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
-  .strength .snum{font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:#fff;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);margin-bottom:14px}
+  .strength .snum{font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:#fff;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);margin-bottom:14px;flex-shrink:0}
   .strength b{font-family:"Bricolage Grotesque";font-size:20px;display:block;margin-bottom:6px;color:var(--night)}
   .strength p{color:var(--muted);font-size:14.5px}
 
-  /* ============ Ofman kernkwadrant ============ */
   .ofwrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;margin-top:20px}
   .quad{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
   .qcell{position:relative;border-radius:18px;padding:22px;cursor:pointer;color:#fff;min-height:148px;
@@ -212,9 +198,8 @@
   .ofdetail .rel{font-size:13px;color:#b9b9e6;font-weight:700;margin-bottom:16px}
   .ofdetail p{color:#d9d9f4;font-size:15.5px;line-height:1.65}
   .ofdetail .quote{margin-top:18px;padding:16px 18px;border-left:3px solid var(--yellow);background:rgba(255,255,255,.04);border-radius:0 12px 12px 0;font-style:italic;color:#fff;font-size:14.5px}
-  .ofhint{font-size:13px;color:#9a9ad6;font-weight:700;margin-top:14px;display:flex;align-items:center;gap:8px}
+  .ofhint{font-size:13px;color:#9a9ad6;font-weight:700;margin-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 
-  /* ============ reflectie ============ */
   .reflect{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .reflect .from,.reflect .to{border-radius:var(--r);padding:30px}
   .reflect .from{background:#fff;border:1px solid rgba(255,78,58,.25)}
@@ -226,7 +211,6 @@
   .reflect p{font-size:15px;color:var(--muted)}
   .reflect .to p{color:#c8c8ee}
 
-  /* ============ toekomst timeline ============ */
   .timeline{position:relative;margin-top:40px;padding-left:34px}
   .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(var(--mint),var(--blue),var(--red))}
   .tstep{position:relative;margin-bottom:30px}
@@ -240,9 +224,8 @@
 
   .ideal{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px}
 
-  /* ============ CTA ============ */
   #contact{background:linear-gradient(150deg,var(--night),#2a2766);color:#fff;text-align:center}
-  #contact h2{font-size:clamp(34px,5.4vw,68px);max-width:900px;margin:0 auto 18px}
+  #contact h2{font-size:clamp(34px,5.4vw,68px);max-width:900px;margin:0 auto 18px;word-break:break-word}
   #contact h2 .co{color:var(--yellow)}
   #contact .lead{margin:0 auto 34px;color:#c5c5ee}
   .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
@@ -251,7 +234,6 @@
   .btn-white{background:#fff;color:var(--night)}
   .btn-white:hover{transform:translateY(-3px)}
 
-  /* ============ footer ============ */
   footer{background:var(--night-2);color:#9a9ad6;padding:60px 26px 34px}
   .fgrid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
   footer h4{color:#fff;font-size:14px;margin-bottom:14px;font-family:"Manrope";font-weight:800;letter-spacing:.04em}
@@ -263,7 +245,7 @@
   .fbrand p{margin-top:10px;font-size:13.5px;max-width:300px}
   .fbot{max-width:var(--maxw);margin:34px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px}
 
-  /* ---------- responsive ---------- */
+  /* ── existing responsive block ── */
   @media(max-width:900px){
     nav.main{display:none}
     .burger{display:block}
@@ -279,12 +261,179 @@
     html{scroll-behavior:auto}
   }
   .kbd{font-family:"Manrope";font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:2px 7px;font-size:11px}
+
+  /* ===================================================
+     RESPONSIVE PATCH — mobile-first additions
+     =================================================== */
+
+  /* Base */
+  img, svg { max-width: 100%; }
+
+  /* Decorative shapes: hide on very small screens to prevent overflow */
+  @media (max-width: 640px) {
+    .shape { display: none; }
+  }
+
+  /* ── 480 px: small phones ── */
+  @media (max-width: 480px) {
+
+    /* Utility bar: stack vertically */
+    .utility .wrap {
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+      padding: 8px 16px;
+    }
+    .utility .wrap > *:last-child { margin-left: 0; }
+    .utility { font-size: 11px; }
+    .utility .sep { display: none; }
+
+    /* Navbar */
+    .navbar { padding: 10px 16px; gap: 12px; }
+    .brand .mark { font-size: 24px; }
+    .brand .baseline { font-size: 10px; margin-left: 7px; }
+
+    /* Hero */
+    #start {
+      padding-top: 155px;
+      padding-bottom: 72px;
+      min-height: auto;
+      align-items: flex-start;
+    }
+    #start h1 { font-size: clamp(38px, 12vw, 56px); margin: 16px 0 6px; }
+    .role { font-size: 15px; }
+    .btns { flex-direction: column; gap: 10px; }
+    .btns .btn { width: 100%; justify-content: center; }
+    .scrollcue { display: none; }
+
+    /* Sections */
+    section { padding: 72px 16px; }
+    #start { padding-left: 16px; padding-right: 16px; }
+
+    /* Big quote */
+    .bigquote { font-size: clamp(22px, 7vw, 32px); }
+
+    /* Stats: 2 cols */
+    .stats { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .stat { padding: 18px 12px; }
+    .stat .num { font-size: clamp(28px, 8vw, 42px); }
+    .stat .lab { font-size: 12px; }
+
+    /* Werkplek cards: single column */
+    .grid[style*="repeat(3"] { grid-template-columns: 1fr !important; }
+
+    /* Sterktes: single column inner grid */
+    .grid[style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .strengths { grid-template-columns: 1fr; }
+
+    /* Ofman quadrant */
+    .ofwrap { gap: 20px; }
+    .qcell { min-height: 110px; padding: 14px; }
+    .qcell .qt { font-size: 17px; }
+    .qcell .qk { font-size: 10px; }
+    .qcell .qmini { font-size: 11.5px; }
+    .qcenter { width: 60px; height: 60px; font-size: 11px; }
+    .ofdetail { padding: 20px; min-height: auto; }
+    .ofdetail h3 { font-size: 22px; }
+    .ofdetail p { font-size: 14px; }
+
+    /* Reflectie */
+    .reflect { grid-template-columns: 1fr; }
+
+    /* Timeline */
+    .timeline { padding-left: 28px; }
+    .tstep h3 { font-size: 18px; }
+    .tstep .nowtag { display: block; margin-left: 0; margin-top: 6px; width: max-content; }
+
+    /* Ideal cards */
+    .ideal { grid-template-columns: 1fr; }
+
+    /* CTA */
+    .cta-row { flex-direction: column; align-items: center; }
+    .cta-row .btn { width: 100%; max-width: 320px; justify-content: center; }
+
+    /* Footer */
+    .fgrid { grid-template-columns: 1fr; gap: 24px; }
+    .fbot { flex-direction: column; gap: 6px; text-align: center; }
+    footer { padding: 48px 16px 28px; }
+  }
+
+  /* ── 380 px: very small phones ── */
+  @media (max-width: 380px) {
+    .quad { gap: 8px; }
+    .qcell { min-height: 96px; padding: 10px; }
+    .qcell .qt { font-size: 14px; }
+    .qcenter { width: 50px; height: 50px; font-size: 9px; }
+    .ofhint { font-size: 11px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .chip { font-size: 12px; padding: 7px 12px; }
+  }
+
+  /* ── 481–768 px: large phones / small tablets ── */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .utility .wrap { flex-wrap: wrap; gap: 6px; }
+    .utility .wrap > *:last-child { margin-left: 0; }
+    .navbar { padding: 12px 20px; }
+    #start { padding-top: 165px; }
+    .btns .btn { padding: 14px 20px; font-size: 14px; }
+    .scrollcue { margin-top: 32px; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat .num { font-size: clamp(30px, 6vw, 48px); }
+    /* Werkplek cards: 2 cols */
+    .grid[style*="repeat(3"] { grid-template-columns: 1fr 1fr !important; }
+    .strengths { grid-template-columns: 1fr; }
+    .grid[style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .reflect { grid-template-columns: 1fr; }
+    .ideal { grid-template-columns: 1fr 1fr; }
+    .fgrid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .fbot { flex-direction: column; gap: 6px; }
+    section { padding: 80px 20px; }
+  }
+
+  /* ── 769–1024 px: tablets ── */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    #start { padding-top: 175px; }
+    .card { padding: 22px; }
+    .stat .num { font-size: clamp(28px, 4vw, 44px); }
+    .fgrid { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 20px; }
+    section { padding: 100px 24px; }
+  }
+
+  /* ── 1025–1280 px: small desktops ── */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    #start h1 { font-size: clamp(52px, 7vw, 90px); }
+    .stats { gap: 14px; }
+    .qcell .qt { font-size: 20px; }
+    .qcenter { width: 74px; height: 74px; font-size: 12px; }
+  }
+
+  /* ── All-widths fixes ── */
+
+  /* Mobile nav tap targets */
+  nav.main.open a {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  nav.main.open .nav-cta {
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* Prevent any horizontal scroll */
+  body { overflow-x: hidden; }
+  .browser { min-width: 0; }
+  .hero-card { min-width: 0; word-break: break-word; }
+  .chips { flex-wrap: wrap; }
+  .chip { white-space: nowrap; }
+  .strength { overflow: hidden; }
+  .tstep { padding-left: 2px; }
 </style>
 </head>
 <body>
 <div id="progress"></div>
 
-<!-- ============ HEADER ============ -->
 <header id="header">
   <div class="utility">
     <div class="wrap">
@@ -315,10 +464,8 @@
   </div>
 </header>
 
-<!-- side dots -->
 <div class="dots" id="dots"></div>
 
-<!-- ============ HERO ============ -->
 <section id="start">
   <svg class="shape float" style="top:12%;right:6%;width:120px" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
   <svg class="shape float" style="bottom:14%;right:24%;width:80px;animation-delay:1.5s" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0 L100 100 Z" fill="#ffc63d"/></svg>
@@ -343,7 +490,6 @@
   </div>
 </section>
 
-<!-- ============ MINDSET ============ -->
 <section id="mindset" class="dark">
   <svg class="shape" style="top:-40px;left:-40px;width:200px;opacity:.1" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d"/></svg>
   <div class="wrap">
@@ -356,7 +502,6 @@
   </div>
 </section>
 
-<!-- ============ WERKPLEK ============ -->
 <section id="werkplek">
   <svg class="shape" style="top:8%;right:-30px;width:120px;opacity:.5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#ffc63d"/></svg>
   <div class="wrap">
@@ -403,7 +548,6 @@
   </div>
 </section>
 
-<!-- ============ PROJECT ============ -->
 <section id="project" style="background:var(--paper)">
   <svg class="shape" style="bottom:6%;left:-20px;width:90px;opacity:.6" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0 L100 100 Z" fill="#2d4bff"/></svg>
   <div class="wrap">
@@ -438,7 +582,6 @@
   </div>
 </section>
 
-<!-- ============ STERKTES ============ -->
 <section id="sterktes">
   <svg class="shape" style="top:10%;right:4%;width:70px;opacity:.7" viewBox="0 0 100 100"><path d="M40 0h20v40h40v20H60v40H40V60H0V40h40z" fill="#13cca1"/></svg>
   <div class="wrap">
@@ -478,7 +621,6 @@
   </div>
 </section>
 
-<!-- ============ KERNKWADRANT ============ -->
 <section id="kernkwadrant" class="dark">
   <svg class="shape" style="top:-30px;right:-30px;width:180px;opacity:.08" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
   <div class="wrap">
@@ -509,12 +651,11 @@
         </div>
         <div class="ofhint">↕ Verticaal = teveel van het goede &nbsp;·&nbsp; ↔ Diagonaal = mijn groeirichting</div>
       </div>
-      <div class="ofdetail" id="ofdetail"><!-- filled by JS --></div>
+      <div class="ofdetail" id="ofdetail"></div>
     </div>
   </div>
 </section>
 
-<!-- ============ REFLECTIE ============ -->
 <section id="reflectie" style="background:var(--paper)">
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Mijn werkpunt &amp; wat ik anders zou doen</span>
@@ -534,7 +675,6 @@
   </div>
 </section>
 
-<!-- ============ TOEKOMST ============ -->
 <section id="toekomst">
   <svg class="shape float" style="top:12%;right:5%;width:90px" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d" opacity=".8"/></svg>
   <div class="wrap">
@@ -578,7 +718,6 @@
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
 <section id="contact">
   <svg class="shape float" style="top:16%;left:8%;width:80px;opacity:.5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
   <svg class="shape float" style="bottom:14%;right:10%;width:70px;opacity:.5;animation-delay:1s" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d"/></svg>
@@ -593,7 +732,6 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="fgrid">
     <div class="fbrand">
@@ -637,7 +775,6 @@
   var sections = ["start","mindset","werkplek","project","sterktes","kernkwadrant","toekomst","contact"];
   var labels   = ["Start","Mindset","Werkplek","Project","Sterktes","Kernkwadrant","Toekomst","Recruteer"];
 
-  /* ---- scroll progress ---- */
   var prog = document.getElementById("progress");
   function onScroll(){
     var h = document.documentElement;
@@ -646,7 +783,6 @@
   }
   window.addEventListener("scroll", onScroll, {passive:true});
 
-  /* ---- side dots ---- */
   var dotsWrap = document.getElementById("dots");
   sections.forEach(function(id,i){
     var b = document.createElement("button");
@@ -656,7 +792,6 @@
   });
   var dotBtns = dotsWrap.querySelectorAll("button");
 
-  /* ---- active section tracking ---- */
   var navLinks = document.querySelectorAll("nav.main a");
   function setActive(idx){
     dotBtns.forEach(function(d,i){ d.classList.toggle("on", i===idx); });
@@ -677,7 +812,6 @@
   secEls.forEach(function(el){ spy.observe(el); });
   setActive(0);
 
-  /* ---- reveal on scroll ---- */
   var revObs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add("in"); revObs.unobserve(e.target); }
@@ -685,7 +819,6 @@
   }, {threshold:.18});
   document.querySelectorAll(".reveal:not(.in)").forEach(function(el){ revObs.observe(el); });
 
-  /* ---- counters ---- */
   function animateCount(el){
     if(el.dataset.az){ return; }
     var to = parseFloat(el.dataset.to);
@@ -707,7 +840,6 @@
   }, {threshold:.6});
   document.querySelectorAll(".num[data-to]").forEach(function(el){ countObs.observe(el); });
 
-  /* ---- Ofman quadrant ---- */
   var detail = {
     kk:{ c:"#13cca1", t:"Zelfstandigheid", k:"Kernkwaliteit", rel:"Mijn natuurlijke kracht",
       p:"Ik pak dingen zelf aan, neem de leiding wanneer een groep richting zoekt en maak me snel nieuwe tools eigen. Ik heb weinig sturing nodig om in beweging te komen, dat zag ik zowel in mijn opleiding als op de werkplek bij <span class='bb'>BrightBoard</span>.",
@@ -738,7 +870,6 @@
   qcells.forEach(function(c){ c.addEventListener("click", function(){ showQ(c.dataset.q); }); });
   showQ("kk");
 
-  /* ---- keyboard navigation (great for live presenting) ---- */
   function goTo(idx){
     idx = Math.max(0, Math.min(sections.length-1, idx));
     document.getElementById(sections[idx]).scrollIntoView({behavior:"smooth"});
@@ -752,13 +883,11 @@
     else if(e.key==="End"){ e.preventDefault(); goTo(sections.length-1); }
   });
 
-  /* ---- mobile menu ---- */
   var burger = document.getElementById("burger");
   var nav = document.getElementById("nav");
   burger.addEventListener("click", function(){ nav.classList.toggle("open"); });
   nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ nav.classList.remove("open"); }); });
 
-  /* ---- hide header on scroll down, show on scroll up ---- */
   var lastY = 0, header = document.getElementById("header");
   window.addEventListener("scroll", function(){
     var y = window.scrollY;
