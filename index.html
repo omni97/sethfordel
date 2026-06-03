@@ -179,6 +179,16 @@
   .track{height:14px;border-radius:99px;background:var(--paper);overflow:hidden;border:1px solid rgba(27,26,75,.08)}
   .fill{height:100%;width:0;border-radius:99px;transition:width 1.3s var(--ease)}
 
+  /* ============ sterktes grid (zonder %) ============ */
+  .strengths{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .strength{position:relative;background:#fff;border-radius:18px;padding:24px;border:1px solid rgba(27,26,75,.08);
+    box-shadow:0 14px 34px rgba(27,26,75,.05);transition:.3s var(--ease);overflow:hidden}
+  .strength:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(27,26,75,.13)}
+  .strength::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
+  .strength .snum{font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:#fff;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);margin-bottom:14px}
+  .strength b{font-family:"Bricolage Grotesque";font-size:20px;display:block;margin-bottom:6px;color:var(--night)}
+  .strength p{color:var(--muted);font-size:14.5px}
+
   /* ============ Ofman kernkwadrant ============ */
   .ofwrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;margin-top:20px}
   .quad{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
@@ -259,7 +269,7 @@
     .burger{display:block}
     nav.main.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:14px;gap:6px;box-shadow:0 30px 60px rgba(27,26,75,.16)}
     .hero-grid,.project,.ofwrap,.reflect,.ideal,.fgrid{grid-template-columns:1fr}
-    .stats{grid-template-columns:1fr 1fr}
+    .stats,.strengths{grid-template-columns:1fr 1fr}
     section{padding:84px 20px}
     #start{padding-top:150px}
   }
@@ -320,7 +330,6 @@
         <span class="status reveal in"><span class="blink"></span>Junior marketeer, nu te lanceren</span>
         <h1 class="reveal in d1">Seth&nbsp;Fordel,<br>klaar voor de <span class="co">start</span>.</h1>
         <div class="role reveal in d2">Graduaat Marketing- en communicatiesupport · digitale marketing en campagnes</div>
-        <p class="hero-sub reveal in d3">Mijn opleiding, samengevat in één pitch. Geen powerpoint vol bullets, maar mezelf gepresenteerd zoals ik werk, als een campagne die klaar is om te lanceren.</p>
         <div class="btns reveal in d4">
           <a class="btn btn-primary" href="#project">Bekijk mijn werk →</a>
           <a class="btn btn-ghost" href="#kernkwadrant">Mijn zelfanalyse</a>
@@ -436,11 +445,27 @@
     <span class="eyebrow reveal"><span class="pill"></span>Mijn sterke punten</span>
     <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:740px">Wat ik meebreng naar elk team.</h2>
     <div class="grid reveal d2" style="grid-template-columns:1fr 1fr;gap:50px;margin-top:46px;align-items:center">
-      <div id="skills">
-        <div class="skill"><div class="top"><b>Kritisch denken</b><span>92%</span></div><div class="track"><div class="fill" data-w="92%" style="background:var(--blue)"></div></div></div>
-        <div class="skill"><div class="top"><b>Zelfstandigheid</b><span>95%</span></div><div class="track"><div class="fill" data-w="95%" style="background:var(--mint)"></div></div></div>
-        <div class="skill"><div class="top"><b>Snel nieuwe tools leren</b><span>90%</span></div><div class="track"><div class="fill" data-w="90%" style="background:var(--red)"></div></div></div>
-        <div class="skill"><div class="top"><b>Leiding nemen in groep</b><span>88%</span></div><div class="track"><div class="fill" data-w="88%" style="background:var(--yellow)"></div></div></div>
+      <div class="strengths">
+        <div class="strength" style="--accent:var(--blue)">
+          <div class="snum">01</div>
+          <b>Kritisch denken</b>
+          <p>Ik kijk verder dan de opdracht en stel de juiste vragen voor een beslissing valt.</p>
+        </div>
+        <div class="strength" style="--accent:var(--mint)">
+          <div class="snum">02</div>
+          <b>Zelfstandigheid</b>
+          <p>Geef me een doel en de ruimte, en ik vind zelf de weg naar het resultaat.</p>
+        </div>
+        <div class="strength" style="--accent:var(--red)">
+          <div class="snum">03</div>
+          <b>Snel nieuwe tools leren</b>
+          <p>Een nieuwe tool maak ik me razendsnel eigen, precies wat digitale marketing vraagt.</p>
+        </div>
+        <div class="strength" style="--accent:var(--yellow)">
+          <div class="snum">04</div>
+          <b>Leiding nemen in groep</b>
+          <p>Wanneer een groep richting zoekt, durf ik de leiding te nemen en de lijn uit te zetten.</p>
+        </div>
       </div>
       <div class="card" style="background:var(--night);color:#fff">
         <div class="ic" style="background:rgba(255,198,61,.2)">
@@ -596,7 +621,7 @@
       <h4>Werk</h4>
       <ul>
         <li><a href="https://brightboard.marketing" target="_blank" rel="noopener">brightboard.marketing ↗</a></li>
-        <li><a href="#contact">Recruteer me</a></li>
+        <li><a href="https://www.linkedin.com/in/seth-fordel/" target="_blank" rel="noopener">Recruteer me ↗</a></li>
       </ul>
     </div>
   </div>
@@ -681,18 +706,6 @@
     });
   }, {threshold:.6});
   document.querySelectorAll(".num[data-to]").forEach(function(el){ countObs.observe(el); });
-
-  /* ---- skill bars ---- */
-  var skillObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.querySelectorAll(".fill").forEach(function(f){ f.style.width = f.dataset.w; });
-        skillObs.unobserve(e.target);
-      }
-    });
-  }, {threshold:.4});
-  var skillsBox = document.getElementById("skills");
-  if(skillsBox) skillObs.observe(skillsBox);
 
   /* ---- Ofman quadrant ---- */
   var detail = {
