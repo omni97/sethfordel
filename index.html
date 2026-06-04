@@ -270,6 +270,20 @@
   }
   .kbd{font-family:"Manrope";font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:2px 7px;font-size:11px}
 
+
+  /* ===== STERKTES – kaarten zonder % ===== */
+  .strengths{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .strength{position:relative;background:#fff;border-radius:18px;padding:24px 22px;
+    border:1px solid rgba(27,26,75,.08);box-shadow:0 14px 34px rgba(27,26,75,.05);
+    transition:.3s var(--ease);overflow:hidden}
+  .strength:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(27,26,75,.13)}
+  .strength::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}
+  .strength .snum{font-family:"Bricolage Grotesque";font-weight:800;font-size:13px;
+    color:var(--accent);margin-bottom:10px;letter-spacing:.04em}
+  .strength b{font-family:"Bricolage Grotesque";font-size:18px;display:block;margin-bottom:6px;color:var(--night)}
+  .strength p{color:var(--muted);font-size:14px;line-height:1.55}
+  @media(max-width:480px){.strengths{grid-template-columns:1fr}}
+
   /* ===== INSTAGRAM STATS – 5 columns ===== */
   .stats-5{grid-template-columns:repeat(5,1fr)}
   .stat.c5 .num{color:#7a3df0}
@@ -563,10 +577,28 @@
     <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:740px">Wat ik meebreng naar elk team.</h2>
     <div class="grid reveal d2" style="grid-template-columns:1fr 1fr;gap:50px;margin-top:46px;align-items:center">
       <div id="skills">
-        <div class="skill"><div class="top"><b>Kritisch denken</b><span>92%</span></div><div class="track"><div class="fill" data-w="92%" style="background:var(--blue)"></div></div></div>
-        <div class="skill"><div class="top"><b>Zelfstandigheid</b><span>95%</span></div><div class="track"><div class="fill" data-w="95%" style="background:var(--mint)"></div></div></div>
-        <div class="skill"><div class="top"><b>Snel nieuwe tools leren</b><span>90%</span></div><div class="track"><div class="fill" data-w="90%" style="background:var(--red)"></div></div></div>
-        <div class="skill"><div class="top"><b>Leiding nemen in groep</b><span>88%</span></div><div class="track"><div class="fill" data-w="88%" style="background:var(--yellow)"></div></div></div>
+        <div class="strengths">
+          <div class="strength" style="--accent:var(--blue)">
+            <div class="snum">01</div>
+            <b>Kritisch denken</b>
+            <p>Ik kijk verder dan de opdracht en stel de juiste vragen voordat een beslissing valt.</p>
+          </div>
+          <div class="strength" style="--accent:var(--mint)">
+            <div class="snum">02</div>
+            <b>Zelfstandigheid</b>
+            <p>Geef me een doel en de ruimte, en ik vind zelf de weg naar het resultaat.</p>
+          </div>
+          <div class="strength" style="--accent:var(--red)">
+            <div class="snum">03</div>
+            <b>Snel nieuwe tools leren</b>
+            <p>Een nieuwe tool maak ik me razendsnel eigen, precies wat digitale marketing vraagt.</p>
+          </div>
+          <div class="strength" style="--accent:var(--yellow)">
+            <div class="snum">04</div>
+            <b>Leiding nemen in groep</b>
+            <p>Wanneer een groep richting zoekt, durf ik de lijn uit te zetten.</p>
+          </div>
+        </div>
       </div>
       <div class="card" style="background:var(--night);color:#fff">
         <div class="ic" style="background:rgba(255,198,61,.2)">
