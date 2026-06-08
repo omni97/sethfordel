@@ -1084,36 +1084,7 @@
   var skillsBox = document.getElementById("skills");
   if(skillsBox) skillObs.observe(skillsBox);
  
-  /* ---- Ofman quadrant ---- */
-  var detail = {
-    kk:{ c:"#13cca1", t:"Zelfstandigheid", k:"Kernkwaliteit", rel:"Mijn natuurlijke kracht",
-      p:"Ik pak dingen zelf aan, neem de leiding wanneer een groep richting zoekt en maak me snel nieuwe tools eigen. Ik heb weinig sturing nodig om in beweging te komen, dat zag ik zowel in mijn opleiding als op de werkplek bij <span class='bb'>BrightBoard</span>.",
-      q:"\u201CGeef me een doel en de ruimte, en ik vind zelf de weg.\u201D", dark:true },
-    vk:{ c:"#ff4e3a", t:"Uitstelgedrag", k:"Valkuil", rel:"Teveel van mijn kernkwaliteit",
-      p:"Net omdat ik erop vertrouw dat ik het \u2018wel zelf en op mijn tempo\u2019 regel, begin ik soms te laat. Bij enkele vakken kostte me dat een tweedezit. Mijn zelfstandigheid slaat dan door naar uitstel.",
-      q:"\u201CMijn sterkte wordt een valkuil zodra \u2018later\u2019 te vaak terugkomt.\u201D" },
-    ud:{ c:"#2d4bff", t:"Stiptheid & structuur", k:"Uitdaging", rel:"Het positieve tegendeel van mijn valkuil",
-      p:"Mijn groei zit in op tijd beginnen, vooruit plannen en grote taken in kleinere stappen knippen. Niets is zo makkelijk als het lijkt, vroeg starten geeft me marge in plaats van stress. Ik gebruik mijn zelfstandigheid om eigen deadlines te zetten.",
-      q:"\u201CStructuur is geen tegenpool van vrijheid, ze maakt mijn vrijheid net werkbaar.\u201D" },
-    al:{ c:"#7a3df0", t:"Starre controle", k:"Allergie", rel:"Teveel van mijn uitdaging",
-      p:"Waar ik me net aan stoor, is rigide micromanagement waarbij elke minuut wordt opgelegd. Mijn groei zit in z\u00e9lf structuur kiezen, niet in opgelegde dwang. Een omgeving die vertrouwen geeft, haalt het beste in me naar boven.",
-      q:"\u201CGeef me kaders, geen ketenen.\u201D" }
-  };
-  var ofdetail = document.getElementById("ofdetail");
-  var qcells = document.querySelectorAll(".qcell");
-  function showQ(key){
-    var d = detail[key];
-    var labelColor = d.dark ? "#0e3b30" : "#fff";
-    ofdetail.innerHTML =
-      '<span class="badge" style="background:'+d.c+';color:'+labelColor+'">'+d.k+'</span>'+
-      '<h3 style="color:'+d.c+'">'+d.t+'</h3>'+
-      '<div class="rel">'+d.rel+'</div>'+
-      '<p>'+d.p+'</p>'+
-      '<div class="quote">'+d.q+'</div>';
-    qcells.forEach(function(c){ c.classList.toggle("sel", c.dataset.q===key); });
-  }
-  qcells.forEach(function(c){ c.addEventListener("click", function(){ showQ(c.dataset.q); }); });
-  showQ("kk");
+ 
  
   /* ---- keyboard navigation (great for live presenting) ---- */
   function goTo(idx){
