@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <!-- Favicons -->
+  <!-- Favicons (verwijzen nog naar je oude bestanden – vervang de afbeeldingen zelf) -->
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -9,23 +9,24 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seth Fordel · Mijn Visuele Ondersteuning</title>
+<title>Seth Fordel · Matchday Pitch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#1b1a4b;        /* Nachtblauw */
-    --night-2:#13123a;
-    --blue:#2d4bff;         /* helder blauw */
-    --red:#ff4e3a;          /* rood / koraal */
-    --mint:#13cca1;         /* muntgroen */
-    --yellow:#ffc63d;       /* zonnegeel accent */
+    --night:#083d23;        /* diep pitch-groen (donkere secties) */
+    --night-2:#052a18;
+    --blue:#1a8a47;         /* grasgroen accent (was helder blauw) */
+    --red:#e63946;          /* rode kaart */
+    --mint:#36d97e;         /* fel turf-groen */
+    --yellow:#f4c430;       /* schijnwerper / gele kaart */
     --white:#ffffff;
-    --paper:#f3f2fb;        /* zacht gebroken wit */
-    --paper-2:#fbfbff;
-    --ink:#1b1a4b;
-    --muted:#5a5a86;
+    --paper:#eef5ec;        /* gebroken wit, groene tint */
+    --paper-2:#f7fcf5;
+    --ink:#083d23;
+    --muted:#5b7a64;
+    --line:rgba(255,255,255,.85); /* veldlijn */
     --r:22px;
     --maxw:1180px;
     --ease:cubic-bezier(.22,.61,.36,1);
@@ -40,245 +41,289 @@
     overflow-x:hidden;
     line-height:1.55;
   }
-  h1,h2,h3,h4,.display{font-family:"Bricolage Grotesque","Manrope",sans-serif;line-height:1.02;letter-spacing:-.02em;font-weight:800}
+  h1,h2,h3,h4,.display{font-family:"Oswald","Manrope",sans-serif;line-height:1.05;letter-spacing:0;font-weight:700}
   a{color:inherit}
   ::selection{background:var(--yellow);color:var(--night)}
   .bb{color:#ed8b00;font-weight:700}
- 
+
   /* ---------- scroll progress ---------- */
   #progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:200;
-    background:linear-gradient(90deg,var(--blue),var(--mint),var(--red),var(--yellow));}
- 
+    background:linear-gradient(90deg,var(--mint),var(--blue),var(--yellow),var(--red));}
+
   /* ---------- header ---------- */
   header{position:fixed;top:0;left:0;right:0;z-index:160;
-    background:rgba(251,251,255,.82);backdrop-filter:blur(14px);
-    border-bottom:1px solid rgba(27,26,75,.08);transition:transform .4s var(--ease)}
-  .utility{background:var(--night);color:#cfd0ef;font-size:12.5px;font-weight:600}
+    background:rgba(247,252,245,.85);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(8,61,35,.1);transition:transform .4s var(--ease)}
+  .utility{background:var(--night);color:#bfe8cf;font-size:12.5px;font-weight:600}
   .utility .wrap{max-width:var(--maxw);margin:0 auto;padding:7px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-  .utility .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(19,204,161,.18)}
+  .utility .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(54,217,126,.18)}
   .utility .sep{opacity:.4}
-  .navbar{max-width:var(--maxw);margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:26px}
-  .brand{display:flex;align-items:flex-end;gap:0;text-decoration:none;line-height:.9}
-  .brand .mark{font-family:"Bricolage Grotesque";font-weight:800;font-size:30px;color:var(--night);letter-spacing:-.04em}
-  .brand .mark .o{color:var(--red)}
-  .brand .baseline{font-size:11px;font-weight:700;color:var(--muted);margin-left:10px;padding-bottom:5px;letter-spacing:.01em}
-  .brand .baseline b{color:var(--blue)}
+  .navbar{max-width:var(--maxw);margin:0 auto;padding:12px 26px;display:flex;align-items:center;gap:26px}
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+  .crest{width:42px;height:50px;flex-shrink:0;filter:drop-shadow(0 5px 10px rgba(8,61,35,.28))}
+  .brand .name{display:flex;flex-direction:column;line-height:1}
+  .brand .name .nm{font-family:"Oswald";font-weight:700;font-size:22px;color:var(--night);letter-spacing:.02em;text-transform:uppercase}
+  .brand .name .baseline{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  .brand .name .baseline b{color:var(--blue)}
   nav.main{margin-left:auto;display:flex;gap:4px;align-items:center}
-  nav.main a{font-size:14px;font-weight:700;color:var(--night);text-decoration:none;padding:8px 12px;border-radius:999px;transition:.2s var(--ease);position:relative}
-  nav.main a:hover{background:rgba(45,75,255,.09);color:var(--blue)}
+  nav.main a{font-size:13.5px;font-weight:700;color:var(--night);text-decoration:none;padding:8px 12px;border-radius:999px;transition:.2s var(--ease);position:relative}
+  nav.main a:hover{background:rgba(26,138,71,.12);color:var(--blue)}
   nav.main a.active{background:var(--night);color:#fff}
   .nav-cta{background:var(--mint)!important;color:var(--night)!important}
-  .nav-cta:hover{background:var(--mint)!important;filter:brightness(1.04)}
+  .nav-cta:hover{background:var(--mint)!important;filter:brightness(1.05)}
   .burger{display:none;margin-left:auto;background:var(--night);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:800;font-family:inherit;cursor:pointer}
- 
+
   /* ---------- side dot nav ---------- */
   .dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:12px}
   .dots button{width:12px;height:12px;border-radius:50%;border:2px solid var(--night);background:transparent;cursor:pointer;padding:0;transition:.25s var(--ease);position:relative}
-  .dots button.on{background:var(--red);border-color:var(--red);transform:scale(1.25)}
+  .dots button.on{background:var(--mint);border-color:var(--mint);transform:scale(1.25)}
   .dots button::after{content:attr(data-label);position:absolute;right:22px;top:50%;transform:translateY(-50%);
     background:var(--night);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s}
   .dots button:hover::after{opacity:1}
   @media(max-width:900px){.dots{display:none}}
- 
+
   /* ---------- layout ---------- */
   section{position:relative;padding:118px 26px;overflow:hidden}
   .wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
-  .eyebrow .pill{width:30px;height:8px;border-radius:99px;background:var(--red)}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;font-family:"Oswald"}
+  .eyebrow .pill{width:30px;height:8px;border-radius:0;background:var(--yellow)}
   .lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:640px}
-  .dark{background:var(--night);color:#ececff}
+  .dark{background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 64px,transparent 64px 128px),
+      var(--night);
+    color:#ececff}
   .dark .eyebrow{color:var(--mint)}
-  .dark .lead{color:#b9b9e6}
+  .dark .lead{color:#bfe8cf}
   .dark h2,.dark h3{color:#fff}
- 
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .reveal.in{opacity:1;transform:none}
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
- 
+
   /* ---------- decorative shapes ---------- */
   .shape{position:absolute;z-index:0;pointer-events:none}
- 
+
   /* ============ HERO ============ */
   #start{padding-top:190px;padding-bottom:120px;min-height:100vh;display:flex;align-items:center;
-    background:radial-gradient(120% 90% at 85% 10%,#fff 0%,var(--paper) 60%)}
+    background:radial-gradient(120% 90% at 85% 8%,#ffffff 0%,var(--paper) 58%)}
+  /* faint pitch markings achter de hero */
+  #start::before{content:"";position:absolute;right:-160px;top:50%;transform:translateY(-50%);
+    width:520px;height:520px;border:3px solid rgba(8,61,35,.07);border-radius:50%;z-index:0;pointer-events:none}
+  #start::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:rgba(8,61,35,.05);z-index:0;pointer-events:none}
   .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:50px;align-items:center}
-  .status{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(27,26,75,.1);
-    border-radius:999px;padding:8px 16px;font-weight:800;font-size:13px;box-shadow:0 10px 30px rgba(27,26,75,.06)}
-  .status .blink{width:9px;height:9px;border-radius:50%;background:var(--mint);animation:blink 1.4s infinite}
-  @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(19,204,161,.5)}50%{opacity:.5;box-shadow:0 0 0 7px rgba(19,204,161,0)}}
-  #start h1{font-size:clamp(46px,8.4vw,108px);color:var(--night);margin:22px 0 6px}
-  #start h1 .co{position:relative;color:var(--red);white-space:nowrap}
+  .status{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(8,61,35,.12);
+    border-radius:999px;padding:8px 16px;font-weight:800;font-size:13px;box-shadow:0 10px 30px rgba(8,61,35,.08)}
+  .status .blink{width:9px;height:9px;border-radius:50%;background:var(--red);animation:blink 1.4s infinite}
+  .status .live{font-family:"Oswald";letter-spacing:.12em;color:var(--red)}
+  @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(230,57,70,.5)}50%{opacity:.5;box-shadow:0 0 0 7px rgba(230,57,70,0)}}
+  #start h1{font-size:clamp(46px,8.4vw,104px);color:var(--night);margin:22px 0 6px;letter-spacing:0;text-transform:uppercase}
+  #start h1 .co{position:relative;color:var(--mint);white-space:nowrap}
   #start h1 .co::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.08em;height:.14em;background:var(--yellow);z-index:-1;border-radius:3px}
-  .role{font-size:clamp(18px,2.4vw,26px);font-weight:800;color:var(--blue);font-family:"Bricolage Grotesque"}
+  .role{font-size:clamp(18px,2.4vw,24px);font-weight:700;color:var(--blue);font-family:"Oswald";text-transform:uppercase;letter-spacing:.02em}
   .hero-sub{margin:20px 0 30px;font-size:clamp(16px,1.8vw,19px);color:var(--muted);max-width:540px}
   .btns{display:flex;gap:14px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:15px;text-decoration:none;
     padding:15px 24px;border-radius:999px;transition:.25s var(--ease);cursor:pointer;border:0;font-family:inherit}
   .btn-primary{background:var(--night);color:#fff}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(27,26,75,.28)}
-  .btn-ghost{background:#fff;color:var(--night);border:1.5px solid rgba(27,26,75,.16)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(8,61,35,.32)}
+  .btn-ghost{background:#fff;color:var(--night);border:1.5px solid rgba(8,61,35,.18)}
   .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-  .hero-card{position:relative;background:var(--night);border-radius:30px;padding:34px;color:#fff;
-    box-shadow:0 40px 80px rgba(27,26,75,.3);overflow:hidden}
-  .hero-card .label{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mint)}
-  .hero-card h3{font-size:23px;margin:8px 0 18px}
-  .specs{display:flex;flex-direction:column;gap:13px}
-  .spec{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed rgba(255,255,255,.16);padding-bottom:11px;font-size:14.5px}
-  .spec span:first-child{color:#a9a9e0;font-weight:600}
-  .spec span:last-child{font-weight:800;text-align:right}
-  .spec .tag{background:var(--red);color:#fff;padding:3px 10px;border-radius:8px;font-size:12px}
   .scrollcue{margin-top:46px;display:flex;align-items:center;gap:12px;color:var(--muted);font-weight:700;font-size:13px}
   .scrollcue .mouse{width:24px;height:38px;border:2px solid var(--muted);border-radius:14px;position:relative}
   .scrollcue .mouse::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;border-radius:3px;background:var(--muted);transform:translateX(-50%);animation:scrolly 1.6s infinite}
   @keyframes scrolly{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
   .float{animation:float 7s ease-in-out infinite}
-  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(6deg)}}
- 
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(8deg)}}
+  .spin{animation:spin 18s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
   /* ============ MINDSET / quote ============ */
-  #mindset{background:var(--night);color:#fff}
-  .bigquote{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(28px,4.6vw,58px);line-height:1.08;letter-spacing:-.02em;max-width:1000px}
+  #mindset{color:#fff}
+  .bigquote{font-family:"Oswald";font-weight:600;font-size:clamp(28px,4.6vw,56px);line-height:1.12;letter-spacing:0;max-width:1000px;text-transform:uppercase}
   .bigquote .hl{color:var(--yellow)}
   .bigquote .hl2{color:var(--mint)}
   .bigquote .hl3{color:var(--red)}
   .quote-foot{margin-top:34px;display:flex;align-items:center;gap:16px}
-  .quote-foot .avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:20px;color:#fff}
-  .quote-foot small{display:block;color:#b9b9e6;font-weight:600}
- 
+  .quote-foot .avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;font-family:"Oswald";font-weight:700;font-size:20px;color:#fff;border:2px solid rgba(255,255,255,.25)}
+  .quote-foot small{display:block;color:#bfe8cf;font-weight:600}
+
   /* ============ generic cards ============ */
   .grid{display:grid;gap:22px}
-  .card{background:#fff;border-radius:var(--r);padding:30px;border:1px solid rgba(27,26,75,.07);
-    box-shadow:0 18px 40px rgba(27,26,75,.05);transition:.3s var(--ease)}
-  .card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(27,26,75,.12)}
+  .card{background:#fff;border-radius:var(--r);padding:30px;border:1px solid rgba(8,61,35,.08);
+    box-shadow:0 18px 40px rgba(8,61,35,.06);transition:.3s var(--ease)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(8,61,35,.14)}
   .card .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:16px}
-  .card h3{font-size:20px;margin-bottom:8px}
+  .card h3{font-size:22px;margin-bottom:8px}
   .card p{color:var(--muted);font-size:15px}
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-  .chip{background:var(--paper);border:1px solid rgba(27,26,75,.1);border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;color:var(--night);display:inline-flex;gap:8px;align-items:center}
+  .chip{background:var(--paper);border:1px solid rgba(8,61,35,.12);border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;color:var(--night);display:inline-flex;gap:8px;align-items:center}
   .chip .d{width:8px;height:8px;border-radius:50%}
- 
-  /* ============ stats ============ */
+
+  /* ============ SCOREBOARD STATS ============ */
+  .insta-eyebrow{display:flex;align-items:center;gap:10px;margin-top:40px;margin-bottom:18px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-family:"Oswald"}
+  .insta-eyebrow .ig-dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 55%,#6228d7 100%);flex-shrink:0}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
-  .stat{background:#fff;border-radius:var(--r);padding:26px;text-align:center;border:1px solid rgba(27,26,75,.07)}
-  .stat .num{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(34px,5vw,56px);line-height:1;color:var(--night)}
+  .stats.stats-5{
+    grid-template-columns:repeat(5,1fr);gap:0;
+    background:linear-gradient(180deg,#0b4a2b,#062c1a);
+    border-radius:18px;padding:10px;
+    border:2px solid rgba(255,255,255,.14);
+    box-shadow:0 28px 56px rgba(8,61,35,.34), inset 0 0 0 1px rgba(255,255,255,.05);
+    position:relative;overflow:hidden}
+  .stats.stats-5::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px)}
+  .stats.stats-5 .stat{background:transparent;border:0;border-right:1px solid rgba(255,255,255,.1);
+    border-radius:0;padding:24px 12px;text-align:center;position:relative}
+  .stats.stats-5 .stat:last-child{border-right:0}
+  .stats.stats-5 .stat .num{font-family:"Oswald";font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1;color:#fff;text-shadow:0 0 16px rgba(54,217,126,.45)}
+  .stats.stats-5 .stat.c1 .num{color:var(--mint)}
+  .stats.stats-5 .stat.c2 .num{color:var(--red)}
+  .stats.stats-5 .stat.c3 .num{color:#7fe6a6}
+  .stats.stats-5 .stat.c4 .num{color:var(--yellow)}
+  .stats.stats-5 .stat.c5 .num{color:#fff}
+  .stats.stats-5 .stat .lab{margin-top:8px;font-weight:700;color:#bfe8cf;font-size:12.5px}
+  /* generieke (niet-scoreboard) stat fallback */
+  .stat{background:#fff;border-radius:var(--r);padding:26px;text-align:center;border:1px solid rgba(8,61,35,.08)}
+  .stat .num{font-family:"Oswald";font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1;color:var(--night)}
   .stat .lab{margin-top:8px;font-weight:700;color:var(--muted);font-size:13.5px}
-  .stat.c1 .num{color:var(--blue)}.stat.c2 .num{color:var(--red)}.stat.c3 .num{color:var(--mint)}.stat.c4 .num{color:#e0a800}
- 
-  /* ============ project ============ */
+
+  /* ============ project / scoreboard browser ============ */
   .project{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:stretch}
-  .browser{background:#fff;border-radius:20px;border:1px solid rgba(27,26,75,.1);overflow:hidden;box-shadow:0 30px 70px rgba(27,26,75,.14)}
-  .browser .bar{display:flex;align-items:center;gap:7px;padding:13px 16px;background:var(--paper);border-bottom:1px solid rgba(27,26,75,.08)}
+  .browser{background:#fff;border-radius:20px;border:1px solid rgba(8,61,35,.12);overflow:hidden;box-shadow:0 30px 70px rgba(8,61,35,.16)}
+  .browser .bar{display:flex;align-items:center;gap:7px;padding:13px 16px;background:var(--paper);border-bottom:1px solid rgba(8,61,35,.08)}
   .browser .bar i{width:11px;height:11px;border-radius:50%}
-  .browser .url{margin-left:12px;background:#fff;border:1px solid rgba(27,26,75,.12);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--blue);flex:1}
-  .browser .screen{padding:38px 30px;background:linear-gradient(150deg,var(--night),#262463);color:#fff;min-height:260px;display:flex;flex-direction:column;justify-content:center;gap:14px}
-  .browser .screen .vbr{display:inline-block;background:var(--mint);color:var(--night);font-weight:800;font-size:12px;padding:5px 12px;border-radius:8px;width:max-content}
-  .browser .screen h4{font-family:"Bricolage Grotesque";font-size:30px}
-  .browser .screen p{color:#c2c2ec;font-size:14.5px}
+  .browser .url{margin-left:12px;background:#fff;border:1px solid rgba(8,61,35,.14);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--blue);flex:1}
+  .browser .screen{padding:38px 30px;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 40px,transparent 40px 80px),
+      linear-gradient(150deg,var(--night),#0c5230);color:#fff;min-height:260px;display:flex;flex-direction:column;justify-content:center;gap:14px;position:relative}
+  .browser .screen .vbr{display:inline-block;background:var(--mint);color:var(--night);font-weight:800;font-size:12px;padding:5px 12px;border-radius:8px;width:max-content;font-family:"Oswald";letter-spacing:.04em}
+  .browser .screen h4{font-family:"Oswald";font-size:32px;text-transform:uppercase}
+  .browser .screen p{color:#bfe8cf;font-size:14.5px}
   .browser .screen .mini{display:flex;gap:8px;margin-top:6px}
   .browser .screen .mini span{height:8px;border-radius:6px;background:rgba(255,255,255,.22)}
- 
+
   /* ============ testimonials / stage ============ */
   .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:46px}
   .tcard{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
     border-radius:var(--r);padding:34px 32px 30px;transition:.3s var(--ease);overflow:hidden}
   .tcard:hover{transform:translateY(-6px);background:rgba(255,255,255,.075);box-shadow:0 28px 60px rgba(0,0,0,.35)}
   .tcard::before{content:"";position:absolute;left:0;top:30px;bottom:30px;width:4px;border-radius:4px;background:var(--accent)}
-  .tcard .qmark{font-family:"Bricolage Grotesque";font-weight:800;font-size:70px;line-height:.55;color:var(--accent);display:block;height:30px;margin-bottom:8px}
+  .tcard .qmark{font-family:"Oswald";font-weight:700;font-size:70px;line-height:.55;color:var(--accent);display:block;height:30px;margin-bottom:8px}
   .tcard blockquote{font-size:clamp(16px,1.6vw,18.5px);line-height:1.62;color:#f1f1ff;font-weight:500;margin:0 0 24px}
   .twho{display:flex;align-items:center;gap:14px}
   .twho .tavatar{width:56px;height:56px;border-radius:50%;flex-shrink:0;overflow:hidden;
     background-size:cover;background-position:center top;
-    border:2.5px solid var(--accent);box-shadow:0 6px 16px rgba(0,0,0,.35)}
-  .twho b{font-family:"Bricolage Grotesque";font-size:18px;color:#fff;display:block;line-height:1.1}
-  .twho small{display:block;color:#b9b9e6;font-weight:600;font-size:13px;margin-top:2px}
- 
-  /* ============ skills ============ */
-  .skill{margin-bottom:24px}
-  .skill .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
-  .skill .top b{font-family:"Bricolage Grotesque";font-size:19px}
-  .skill .top span{font-weight:800;color:var(--muted)}
-  .track{height:14px;border-radius:99px;background:var(--paper);overflow:hidden;border:1px solid rgba(27,26,75,.08)}
-  .fill{height:100%;width:0;border-radius:99px;transition:width 1.3s var(--ease)}
- 
-  /* ============ Ofman kernkwadrant ============ */
+    border:2.5px solid var(--accent);box-shadow:0 6px 16px rgba(0,0,0,.35);
+    display:grid;place-items:center;font-family:"Oswald";font-weight:700;font-size:20px;color:#fff}
+  .twho b{font-family:"Oswald";font-size:18px;color:#fff;display:block;line-height:1.15}
+  .twho small{display:block;color:#bfe8cf;font-weight:600;font-size:13px;margin-top:2px}
+
+  /* ============ SQUAD CARDS (sterktes) ============ */
+  .strengths{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .strength{position:relative;background:linear-gradient(165deg,#0c5230 0%,#083d23 65%);
+    border-radius:18px;padding:26px 22px 22px;color:#fff;
+    border:1px solid rgba(255,255,255,.12);box-shadow:0 16px 38px rgba(8,61,35,.22);
+    transition:.3s var(--ease);overflow:hidden}
+  .strength:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(8,61,35,.34)}
+  .strength::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
+  .strength::after{content:"";position:absolute;right:-30px;bottom:-30px;width:96px;height:96px;border:2px solid rgba(255,255,255,.07);border-radius:50%}
+  .strength .snum{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:11px;
+    background:var(--accent);color:#06301c;display:grid;place-items:center;
+    font-family:"Oswald";font-weight:700;font-size:21px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+  .strength .pos{font-family:"Oswald";font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin-bottom:8px}
+  .strength b{font-family:"Oswald";font-size:21px;display:block;margin-bottom:6px;color:#fff;text-transform:uppercase;letter-spacing:.01em;padding-right:48px}
+  .strength p{color:#bfe8cf;font-size:14px;line-height:1.55}
+  @media(max-width:480px){.strengths{grid-template-columns:1fr}}
+
+  /* ============ FORMATION PITCH (kernkwadrant) ============ */
   .ofwrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;margin-top:20px}
-  .quad{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
-  .qcell{position:relative;border-radius:18px;padding:22px;cursor:pointer;color:#fff;min-height:148px;
-    display:flex;flex-direction:column;justify-content:space-between;transition:.3s var(--ease);border:3px solid transparent}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;
+    background:linear-gradient(180deg,#0c5230,#083d23);
+    border:2px solid rgba(255,255,255,.22);border-radius:18px;padding:18px;
+    box-shadow:0 24px 50px rgba(0,0,0,.3)}
+  .quad::before{content:"";position:absolute;left:18px;right:18px;top:50%;height:2px;background:rgba(255,255,255,.28);transform:translateY(-1px);z-index:0}
+  .quad::after{content:"";position:absolute;left:50%;top:50%;width:128px;height:128px;border:2px solid rgba(255,255,255,.26);border-radius:50%;transform:translate(-50%,-50%);z-index:0}
+  .qcell{position:relative;z-index:1;border-radius:14px;padding:22px;cursor:pointer;color:#fff;min-height:148px;
+    display:flex;flex-direction:column;justify-content:space-between;transition:.3s var(--ease);border:2px solid rgba(255,255,255,.18)}
   .qcell:hover{transform:translateY(-4px)}
-  .qcell.sel{transform:translateY(-4px) scale(1.015);box-shadow:0 24px 50px rgba(0,0,0,.4)}
-  .qcell .qk{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;opacity:.85}
-  .qcell .qt{font-family:"Bricolage Grotesque";font-size:24px;font-weight:800;margin-top:6px}
-  .qcell .qmini{font-size:12.5px;opacity:.9;font-weight:600}
+  .qcell.sel{transform:translateY(-4px) scale(1.015);box-shadow:0 24px 50px rgba(0,0,0,.45);border-color:#fff}
+  .qcell .qk{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;opacity:.9;font-family:"Oswald"}
+  .qcell .qt{font-family:"Oswald";font-size:24px;font-weight:700;margin-top:6px;text-transform:uppercase}
+  .qcell .qmini{font-size:12.5px;opacity:.92;font-weight:600}
   .q-kk{background:var(--mint);color:var(--night)}
   .q-vk{background:var(--red)}
   .q-ud{background:var(--blue)}
-  .q-al{background:#7a3df0}
+  .q-al{background:#0a8f73}
   .qcenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;
     background:var(--night);border:3px solid #fff;color:#fff;width:84px;height:84px;border-radius:50%;
-    display:grid;place-items:center;text-align:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:13px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+    display:grid;place-items:center;text-align:center;font-family:"Oswald";font-weight:700;font-size:13px;text-transform:uppercase;box-shadow:0 12px 30px rgba(0,0,0,.45)}
   .ofdetail{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:30px;min-height:300px}
-  .ofdetail .badge{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:99px;margin-bottom:14px}
-  .ofdetail h3{font-size:30px;margin-bottom:6px}
-  .ofdetail .rel{font-size:13px;color:#b9b9e6;font-weight:700;margin-bottom:16px}
-  .ofdetail p{color:#d9d9f4;font-size:15.5px;line-height:1.65}
+  .ofdetail .badge{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:99px;margin-bottom:14px;font-family:"Oswald"}
+  .ofdetail h3{font-size:32px;margin-bottom:6px;text-transform:uppercase}
+  .ofdetail .rel{font-size:13px;color:#bfe8cf;font-weight:700;margin-bottom:16px}
+  .ofdetail p{color:#d9f0e2;font-size:15.5px;line-height:1.65}
   .ofdetail .quote{margin-top:18px;padding:16px 18px;border-left:3px solid var(--yellow);background:rgba(255,255,255,.04);border-radius:0 12px 12px 0;font-style:italic;color:#fff;font-size:14.5px}
-  .ofhint{font-size:13px;color:#9a9ad6;font-weight:700;margin-top:14px;display:flex;align-items:center;gap:8px}
- 
+  .ofhint{font-size:13px;color:#8fc6a6;font-weight:700;margin-top:14px;display:flex;align-items:center;gap:8px}
+
   /* ============ reflectie ============ */
   .reflect{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .reflect .from,.reflect .to{border-radius:var(--r);padding:30px}
-  .reflect .from{background:#fff;border:1px solid rgba(255,78,58,.25)}
+  .reflect .from{background:#fff;border:1px solid rgba(230,57,70,.28)}
   .reflect .to{background:var(--night);color:#fff}
-  .reflect .lab{font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+  .reflect .lab{font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;font-family:"Oswald"}
   .reflect .from .lab{color:var(--red)}
   .reflect .to .lab{color:var(--mint)}
-  .reflect h3{font-family:"Bricolage Grotesque";font-size:22px;margin-bottom:10px}
+  .reflect h3{font-family:"Oswald";font-size:24px;margin-bottom:10px;text-transform:uppercase}
   .reflect p{font-size:15px;color:var(--muted)}
-  .reflect .to p{color:#c8c8ee}
- 
-  /* ============ toekomst timeline ============ */
+  .reflect .to p{color:#bfe8cf}
+
+  /* ============ toekomst – matchklok ============ */
   .timeline{position:relative;margin-top:40px;padding-left:34px}
   .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(var(--mint),var(--blue),var(--red))}
   .tstep{position:relative;margin-bottom:30px}
   .tstep::before{content:"";position:absolute;left:-33px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
-  .tstep.now::before{border-color:var(--mint);box-shadow:0 0 0 5px rgba(19,204,161,.2)}
-  .tstep .when{font-weight:800;color:var(--blue);font-size:13px;letter-spacing:.04em}
+  .tstep.now::before{border-color:var(--mint);box-shadow:0 0 0 5px rgba(54,217,126,.22)}
+  .tstep .when{font-weight:700;color:var(--blue);font-size:13px;letter-spacing:.1em;font-family:"Oswald";text-transform:uppercase}
   .tstep.now .when{color:var(--mint)}
-  .tstep h3{font-family:"Bricolage Grotesque";font-size:22px;margin:3px 0 6px}
+  .tstep h3{font-family:"Oswald";font-size:24px;margin:3px 0 6px;text-transform:uppercase}
   .tstep p{color:var(--muted);font-size:15px;max-width:560px}
-  .tstep .nowtag{display:inline-block;background:var(--mint);color:var(--night);font-weight:800;font-size:11px;padding:3px 10px;border-radius:7px;margin-left:8px;vertical-align:middle}
- 
+  .tstep .nowtag{display:inline-block;background:var(--mint);color:var(--night);font-weight:800;font-size:11px;padding:3px 10px;border-radius:7px;margin-left:8px;vertical-align:middle;font-family:"Oswald";letter-spacing:.06em;text-transform:uppercase}
+
   .ideal{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px}
- 
+
   /* ============ CTA ============ */
-  #contact{background:linear-gradient(150deg,var(--night),#2a2766);color:#fff;text-align:center}
-  #contact h2{font-size:clamp(34px,5.4vw,68px);max-width:900px;margin:0 auto 18px}
+  #contact{background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 70px,transparent 70px 140px),
+      linear-gradient(150deg,var(--night),#0c5230);color:#fff;text-align:center}
+  #contact::before{content:"";position:absolute;left:50%;top:50%;width:340px;height:340px;border:3px solid rgba(255,255,255,.08);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+  #contact h2{font-size:clamp(34px,5.4vw,66px);max-width:900px;margin:0 auto 18px;text-transform:uppercase}
   #contact h2 .co{color:var(--yellow)}
-  #contact .lead{margin:0 auto 34px;color:#c5c5ee}
+  #contact .lead{margin:0 auto 34px;color:#bfe8cf}
   .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
   .btn-mint{background:var(--mint);color:var(--night)}
-  .btn-mint:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(19,204,161,.4)}
+  .btn-mint:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(54,217,126,.4)}
   .btn-white{background:#fff;color:var(--night)}
   .btn-white:hover{transform:translateY(-3px)}
- 
+
   /* ============ footer ============ */
-  footer{background:var(--night-2);color:#9a9ad6;padding:60px 26px 34px}
+  footer{background:var(--night-2);color:#8fc6a6;padding:60px 26px 34px}
   .fgrid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
-  footer h4{color:#fff;font-size:14px;margin-bottom:14px;font-family:"Manrope";font-weight:800;letter-spacing:.04em}
+  footer h4{color:#fff;font-size:13px;margin-bottom:14px;font-family:"Oswald";font-weight:700;letter-spacing:.1em;text-transform:uppercase}
   footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:14px}
-  footer a{text-decoration:none;color:#9a9ad6;transition:.2s}
+  footer a{text-decoration:none;color:#8fc6a6;transition:.2s}
   footer a:hover{color:var(--mint)}
-  .fbrand .mark{font-family:"Bricolage Grotesque";font-weight:800;font-size:28px;color:#fff;letter-spacing:-.04em}
-  .fbrand .mark .o{color:var(--red)}
-  .fbrand p{margin-top:10px;font-size:13.5px;max-width:300px}
+  .fbrand .fbrand-top{display:flex;align-items:center;gap:11px}
+  .fbrand .crest{width:38px;height:45px}
+  .fbrand .fname{font-family:"Oswald";font-weight:700;font-size:24px;color:#fff;letter-spacing:.02em;text-transform:uppercase}
+  .fbrand p{margin-top:12px;font-size:13.5px;max-width:300px}
   .fbot{max-width:var(--maxw);margin:34px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px}
- 
+
   /* ---------- responsive ---------- */
   @media(max-width:900px){
     nav.main{display:none}
     .burger{display:block}
-    nav.main.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:14px;gap:6px;box-shadow:0 30px 60px rgba(27,26,75,.16)}
+    nav.main.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:14px;gap:6px;box-shadow:0 30px 60px rgba(8,61,35,.18)}
     .hero-grid,.project,.ofwrap,.reflect,.ideal,.fgrid{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr}
     section{padding:84px 20px}
@@ -290,29 +335,12 @@
     html{scroll-behavior:auto}
   }
   .kbd{font-family:"Manrope";font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:2px 7px;font-size:11px}
- 
- 
-  /* ===== STERKTES – kaarten zonder % ===== */
-  .strengths{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .strength{position:relative;background:#fff;border-radius:18px;padding:24px 22px;
-    border:1px solid rgba(27,26,75,.08);box-shadow:0 14px 34px rgba(27,26,75,.05);
-    transition:.3s var(--ease);overflow:hidden}
-  .strength:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(27,26,75,.13)}
-  .strength::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}
-  .strength .snum{font-family:"Bricolage Grotesque";font-weight:800;font-size:13px;
-    color:var(--accent);margin-bottom:10px;letter-spacing:.04em}
-  .strength b{font-family:"Bricolage Grotesque";font-size:18px;display:block;margin-bottom:6px;color:var(--night)}
-  .strength p{color:var(--muted);font-size:14px;line-height:1.55}
-  @media(max-width:480px){.strengths{grid-template-columns:1fr}}
- 
+
   /* ===== INSTAGRAM STATS – 5 columns ===== */
-  .stats-5{grid-template-columns:repeat(5,1fr)}
-  .stat.c5 .num{color:#7a3df0}
-  .insta-eyebrow{display:flex;align-items:center;gap:10px;margin-top:40px;margin-bottom:18px;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--blue)}
-  .insta-eyebrow .ig-dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 55%,#6228d7 100%);flex-shrink:0}
+  .stat.c5 .num{color:#0a8f73}
   @media(max-width:1100px){.stats-5{grid-template-columns:repeat(3,1fr)!important}}
   @media(max-width:480px){.stats-5{grid-template-columns:1fr 1fr!important}}
- 
+
   /* ===== PHONE VIDEO MOCKUPS ===== */
   .phone-grid{display:flex;gap:30px;justify-content:center;margin-top:52px;flex-wrap:wrap;align-items:flex-end;padding-bottom:16px}
   .phone-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;transition:.5s var(--ease);position:relative}
@@ -325,20 +353,20 @@
   .phone-pill{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:50px;height:5px;
     background:rgba(255,255,255,.24);border-radius:3px;z-index:3;pointer-events:none}
   .phone video{width:100%;height:100%;object-fit:cover;display:block}
-  .phone-overlay{position:absolute;inset:0;background:rgba(13,13,34,.42);display:flex;align-items:center;
+  .phone-overlay{position:absolute;inset:0;background:rgba(8,61,35,.46);display:flex;align-items:center;
     justify-content:center;z-index:2;transition:.3s;backdrop-filter:blur(3px)}
   .phone-overlay.hidden{opacity:0;pointer-events:none;backdrop-filter:none}
-  .play-btn{width:56px;height:56px;background:rgba(255,255,255,.93);border-radius:50%;display:flex;
+  .play-btn{width:56px;height:56px;background:rgba(255,255,255,.94);border-radius:50%;display:flex;
     align-items:center;justify-content:center;font-size:20px;padding-left:5px;
     box-shadow:0 8px 24px rgba(0,0,0,.45);transition:.3s var(--ease);color:var(--night)}
   .phone-wrap:hover .play-btn{transform:scale(1.12)}
-  .mute-badge{position:absolute;bottom:12px;right:12px;z-index:4;background:rgba(27,26,75,.75);
+  .mute-badge{position:absolute;bottom:12px;right:12px;z-index:4;background:rgba(8,61,35,.78);
     color:#fff;font-size:18px;border-radius:8px;padding:4px 8px;opacity:0;transition:.3s;pointer-events:none}
   .mute-badge.show{opacity:1}
   .vid-label{text-align:center}
-  .vid-label .vid-type{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--mint);margin-bottom:5px}
-  .vid-label h4{font-family:"Bricolage Grotesque";font-size:17px;color:#fff;margin-bottom:4px}
-  .vid-label p{font-size:13px;color:#9a9ad6;max-width:180px;margin:0 auto}
+  .vid-label .vid-type{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:5px;font-family:"Oswald"}
+  .vid-label h4{font-family:"Oswald";font-size:18px;color:#fff;margin-bottom:4px;text-transform:uppercase}
+  .vid-label p{font-size:13px;color:#8fc6a6;max-width:180px;margin:0 auto}
   @media(max-width:680px){
     .phone-grid{gap:18px}
     .phone-wrap:nth-child(1){transform:rotate(-3deg) translateY(8px)}
@@ -351,188 +379,126 @@
     .phone-wrap:nth-child(n){transform:none!important}
     .phone{width:200px;height:355px}
   }
- 
- 
+
   /* ============================================================
-     RESPONSIVE PATCH — mobile-first, gelaagde breakpoints
+     RESPONSIVE PATCH
      ============================================================ */
- 
-  /* ── Basis: geen horizontale overflow, schaalmiddelen ── */
   html, body { overflow-x: hidden; }
   img, svg, video { max-width: 100%; height: auto; }
-  .browser, .hero-card { min-width: 0; word-break: break-word; }
+  .browser { min-width: 0; word-break: break-word; }
   .chips { flex-wrap: wrap; }
   .strength { overflow: hidden; }
- 
-  /* ── Burger-menu: klikbare tap-targets ── */
-  nav.main.open a {
-    display: block;
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-size: 15px;
-    text-align: left;
-  }
+
+  nav.main.open a { display: block; padding: 12px 16px; border-radius: 12px; font-size: 15px; text-align: left; }
   nav.main.open .nav-cta { text-align: center; margin-top: 6px; }
- 
-  /* ── ≤ 480 px — kleine smartphones ── */
+
   @media (max-width: 480px) {
- 
-    /* Utility balk: stapel verticaal */
-    .utility .wrap {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3px;
-      padding: 8px 16px;
-      font-size: 11px;
-    }
+    .utility .wrap { flex-direction: column; align-items: flex-start; gap: 3px; padding: 8px 16px; font-size: 11px; }
     .utility .sep { display: none; }
     .utility .wrap > *:last-child { margin-left: 0 !important; }
- 
-    /* Navbar */
     .navbar { padding: 10px 16px; gap: 10px; }
-    .brand .mark { font-size: 24px; }
-    .brand .baseline { font-size: 10px; margin-left: 7px; }
- 
-    /* Hero */
-    #start {
-      padding-top: 148px;
-      padding-bottom: 60px;
-      padding-left: 16px;
-      padding-right: 16px;
-      min-height: auto;
-      align-items: flex-start;
-    }
-    #start h1 { font-size: clamp(36px, 11vw, 54px); margin: 14px 0 5px; }
-    .role { font-size: clamp(13px, 4vw, 16px); }
+    .brand .name .nm { font-size: 19px; }
+    .brand .name .baseline { font-size: 9.5px; }
+    .crest { width: 36px; height: 43px; }
+
+    #start { padding-top: 148px; padding-bottom: 60px; padding-left: 16px; padding-right: 16px; min-height: auto; align-items: flex-start; }
+    #start::before{ width:300px;height:300px;right:-120px }
+    #start h1 { font-size: clamp(38px, 12vw, 56px); margin: 14px 0 5px; }
+    .role { font-size: clamp(14px, 4.5vw, 18px); }
     .hero-sub { font-size: 15px; margin: 14px 0 22px; }
     .scrollcue { display: none; }
     .btns { flex-direction: column; gap: 10px; }
     .btns .btn { width: 100%; justify-content: center; padding: 14px 20px; }
- 
-    /* Secties */
+
     section { padding: 68px 16px; }
     #mindset { padding: 68px 16px; }
- 
-    /* Big quote */
-    .bigquote { font-size: clamp(21px, 6.8vw, 30px); }
- 
-    /* Werkplek 3-kaarten → 1 kolom */
-    .grid[style*="repeat(3"] {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
-    }
- 
-    /* Instagram stats: 2 kolommen */
-    .stats-5 { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
-    .stat { padding: 16px 10px; }
-    .stat .num { font-size: clamp(26px, 8vw, 38px); }
-    .stat .lab { font-size: 11.5px; }
- 
-    /* Sterktes: override inline-stijl → 1 kolom */
-    #sterktes .grid[style*="1fr 1fr"] {
-      grid-template-columns: 1fr !important;
-      gap: 24px !important;
-    }
+    .bigquote { font-size: clamp(22px, 7vw, 32px); }
+
+    .grid[style*="repeat(3"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+    .stats-5 { grid-template-columns: 1fr 1fr !important; gap: 0 !important; }
+    .stats.stats-5 .stat { padding: 16px 8px; border-bottom:1px solid rgba(255,255,255,.1); }
+    .stats.stats-5 .stat .num { font-size: clamp(26px, 8vw, 38px); }
+    .stats.stats-5 .stat .lab { font-size: 11px; }
+
+    #sterktes .grid[style*="1fr 1fr"] { grid-template-columns: 1fr !important; gap: 24px !important; }
     .strengths { grid-template-columns: 1fr !important; }
- 
-    /* Stage / testimonials → 1 kolom */
+
     .tgrid { grid-template-columns: 1fr !important; gap: 16px !important; }
     .tcard { padding: 26px 22px 24px; }
- 
-    /* Kernkwadrant kwadranten */
-    .qcell { min-height: 108px; padding: 13px; }
-    .qcell .qt { font-size: 17px; }
+
+    .qcell { min-height: 112px; padding: 14px; }
+    .qcell .qt { font-size: 18px; }
     .qcell .qk { font-size: 10px; }
     .qcell .qmini { font-size: 11px; }
-    .qcenter { width: 58px; height: 58px; font-size: 10px; }
+    .qcenter { width: 60px; height: 60px; font-size: 10px; }
+    .quad::after{ width:96px;height:96px }
     .ofdetail { padding: 20px; min-height: auto; }
-    .ofdetail h3 { font-size: 22px; }
+    .ofdetail h3 { font-size: 24px; }
     .ofdetail p { font-size: 14px; }
- 
-    /* Tijdlijn */
-    .tstep h3 { font-size: 18px; }
+
+    .tstep h3 { font-size: 19px; }
     .tstep .nowtag { display: block; margin: 6px 0 0; width: max-content; }
     .timeline { padding-left: 28px; }
- 
-    /* Reflectie: override inline 1fr 1fr → 1 kolom */
+
     .reflect { grid-template-columns: 1fr !important; }
- 
-    /* Ideaal kaarten: override inline 1fr 1fr → 1 kolom */
     .ideal { grid-template-columns: 1fr !important; }
- 
-    /* CTA knoppen */
+
     .cta-row { flex-direction: column; align-items: stretch; }
     .cta-row .btn { justify-content: center; }
- 
-    /* Footer */
+
     footer { padding: 48px 16px 28px; }
     .fgrid { grid-template-columns: 1fr !important; gap: 24px; }
     .fbot { flex-direction: column; gap: 6px; text-align: center; }
- 
-    /* Decoratieve vormen kleiner */
     .shape { transform: scale(0.7); }
   }
- 
-  /* ── 481 – 768 px — grote telefoons / kleine tablets ── */
+
   @media (min-width: 481px) and (max-width: 768px) {
- 
     .utility .wrap { flex-wrap: wrap; gap: 5px; }
     .utility .wrap > *:last-child { margin-left: 0 !important; }
     .navbar { padding: 12px 20px; }
     section { padding: 80px 20px; }
     #start { padding-top: 158px; padding-bottom: 80px; }
- 
-    /* Werkplek 3-kaarten → 2 kolommen */
     .grid[style*="repeat(3"] { grid-template-columns: 1fr 1fr !important; }
- 
-    /* Sterktes → 1 kolom op deze breedte */
-    #sterktes .grid[style*="1fr 1fr"] {
-      grid-template-columns: 1fr !important;
-      gap: 28px !important;
-    }
+    #sterktes .grid[style*="1fr 1fr"] { grid-template-columns: 1fr !important; gap: 28px !important; }
     .strengths { grid-template-columns: 1fr 1fr; }
- 
-    /* Stats */
     .stats-5 { grid-template-columns: repeat(3, 1fr) !important; }
-    .stat .num { font-size: clamp(28px, 5vw, 46px); }
- 
-    /* Reflectie en ideaal */
     .reflect { grid-template-columns: 1fr !important; }
     .ideal { grid-template-columns: 1fr 1fr; }
- 
-    /* Footer: 2 kolommen */
     .fgrid { grid-template-columns: 1fr 1fr !important; gap: 24px; }
     .fbot { flex-direction: column; gap: 6px; }
   }
- 
-  /* ── 769 – 1024 px — tablets / kleine desktops ── */
+
   @media (min-width: 769px) and (max-width: 1024px) {
- 
     section { padding: 100px 24px; }
     #start { padding-top: 172px; }
     .card { padding: 24px; }
-    .stat .num { font-size: clamp(28px, 4vw, 46px); }
- 
-    /* Sterktes: 50px gap verkleinen */
     #sterktes .grid[style*="1fr 1fr"] { gap: 28px !important; }
- 
-    /* Footer */
     .fgrid { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 20px; }
   }
- 
-  /* ── 1025 – 1280 px — standaard desktops ── */
+
   @media (min-width: 1025px) and (max-width: 1280px) {
     #start h1 { font-size: clamp(52px, 7vw, 88px); }
-    .stats-5 { gap: 14px; }
+    .stats-5 { gap: 0; }
     .qcell .qt { font-size: 20px; }
     .qcenter { width: 74px; height: 74px; font-size: 12px; }
   }
- 
 </style>
 </head>
 <body>
 <div id="progress"></div>
- 
+
+<!-- ====== CREST TEMPLATE (SVG, hergebruikt in header + footer) ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sf-crest" viewBox="0 0 60 70">
+    <path d="M5 5 H55 V40 C55 57 30 67 30 67 C30 67 5 57 5 40 Z" fill="#083d23" stroke="#f4c430" stroke-width="3"/>
+    <rect x="5" y="26" width="50" height="15" fill="#36d97e"/>
+    <text x="30" y="38.5" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="15" fill="#083d23">SF</text>
+    <circle cx="30" cy="15" r="5.4" fill="#fff" stroke="#083d23" stroke-width="1.4"/>
+    <polygon points="30,11.5 32.6,13.5 31.6,16.6 28.4,16.6 27.4,13.5" fill="#083d23"/>
+  </symbol>
+</svg>
+
 <!-- ============ HEADER ============ -->
 <header id="header">
   <div class="utility">
@@ -542,13 +508,16 @@
       <span class="sep">·</span>
       <span>Graduaat Marketing- en communicatiesupport</span>
       <span class="sep">·</span>
-      <span style="margin-left:auto">Status: klaar voor de start 🚀</span>
+      <span style="margin-left:auto">Status: klaar voor de aftrap ⚽</span>
     </div>
   </div>
   <div class="navbar">
-    <a class="brand" href="#start">
-      <span class="mark"><span class="o">o</span>disee</span>
-      <span class="baseline">de <b>co</b>-hogeschool</span>
+    <a class="brand" href="#start" aria-label="Seth Fordel">
+      <svg class="crest" viewBox="0 0 60 70"><use href="#sf-crest"/></svg>
+      <span class="name">
+        <span class="nm">Seth Fordel</span>
+        <span class="baseline">Junior <b>marketeer</b></span>
+      </span>
     </a>
     <button class="burger" id="burger">Menu</button>
     <nav class="main" id="nav">
@@ -565,23 +534,34 @@
     </nav>
   </div>
 </header>
- 
+
 <!-- side dots -->
 <div class="dots" id="dots"></div>
- 
+
 <!-- ============ HERO ============ -->
 <section id="start">
-  <svg class="shape float" style="top:12%;right:6%;width:120px" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
-  <svg class="shape float" style="bottom:14%;right:24%;width:80px;animation-delay:1.5s" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0 L100 100 Z" fill="#ffc63d"/></svg>
-  <svg class="shape float" style="top:30%;left:-2%;width:90px;animation-delay:.8s" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#2d4bff" opacity=".9"/></svg>
-  <svg class="shape" style="bottom:8%;left:8%;width:60px" viewBox="0 0 100 100"><path d="M40 0h20v40h40v20H60v40H40V60H0V40h40z" fill="#ff4e3a"/></svg>
+  <!-- voetbal -->
+  <svg class="shape spin" style="top:12%;right:6%;width:120px" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="47" fill="#fff" stroke="#083d23" stroke-width="3"/>
+    <polygon points="50,30 62,39 57,53 43,53 38,39" fill="#083d23"/>
+    <path d="M50 18 L57 30 M50 18 L43 30 M62 39 L74 36 M38 39 L26 36 M57 53 L64 66 M43 53 L36 66" stroke="#083d23" stroke-width="2.4" fill="none"/>
+  </svg>
+  <!-- hoekschop-boog -->
+  <svg class="shape float" style="bottom:14%;right:24%;width:80px;animation-delay:1.5s" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0" fill="none" stroke="#f4c430" stroke-width="8"/></svg>
+  <!-- kleine voetbal -->
+  <svg class="shape float" style="top:32%;left:-1%;width:64px;animation-delay:.8s" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="47" fill="#fff" stroke="#1a8a47" stroke-width="3"/>
+    <polygon points="50,30 62,39 57,53 43,53 38,39" fill="#1a8a47"/>
+  </svg>
+  <!-- doel-icoon -->
+  <svg class="shape" style="bottom:10%;left:8%;width:70px" viewBox="0 0 100 100"><path d="M14 22h72v18H14z M14 22v56 M86 22v56 M14 40h72" fill="none" stroke="#e63946" stroke-width="6" stroke-linejoin="round"/></svg>
   <div class="wrap">
     <div class="hero-grid" style="grid-template-columns:1fr;max-width:920px">
       <div>
-        <span class="status reveal in"><span class="blink"></span>Junior marketeer, nu te lanceren</span>
-        <h1 class="reveal in d1">Seth&nbsp;Fordel,<br>klaar voor de <span class="co">start</span>.</h1>
+        <span class="status reveal in"><span class="blink"></span><span class="live">LIVE</span> · Junior marketeer, klaar voor transfer</span>
+        <h1 class="reveal in d1">Seth&nbsp;Fordel,<br>klaar voor de <span class="co">aftrap</span>.</h1>
         <div class="role reveal in d2">Graduaat Marketing- en communicatiesupport · digitale marketing en campagnes</div>
-        <p class="hero-sub reveal in d3">Mijn opleiding, samengevat in één pitch.</p>
+        <p class="hero-sub reveal in d3">Mijn opleiding, samengevat in één pitch, op het veld waar ik me thuis voel.</p>
         <div class="btns reveal in d4">
           <a class="btn btn-primary" href="#project">Bekijk mijn werk →</a>
           <a class="btn btn-ghost" href="#kernkwadrant">Mijn zelfanalyse</a>
@@ -594,32 +574,32 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ============ MINDSET ============ -->
 <section id="mindset" class="dark">
-  <svg class="shape" style="top:-40px;left:-40px;width:200px;opacity:.1" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d"/></svg>
+  <svg class="shape" style="top:-40px;left:-40px;width:220px;opacity:.08" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#f4c430" stroke-width="3"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Wat heb ik geleerd?</span>
     <p class="bigquote reveal d1">Talent en inzicht brengen je niet <span class="hl3">overal</span>. Je moet <span class="hl">hard werken</span> voor wat je wilt, en <span class="hl2">stiptheid</span> is goud waard. Begin op tijd, want niets is ooit zo makkelijk als het lijkt.</p>
     <div class="quote-foot reveal d2">
       <div class="avatar">SF</div>
-      <div><b style="color:#fff;font-family:'Bricolage Grotesque'">Mijn belangrijkste les uit de opleiding</b></div>
+      <div><b style="color:#fff;font-family:'Oswald';text-transform:uppercase">Mijn belangrijkste les uit de opleiding</b></div>
     </div>
   </div>
 </section>
- 
+
 <!-- ============ WERKPLEK ============ -->
 <section id="werkplek">
-  <svg class="shape" style="top:8%;right:-30px;width:120px;opacity:.5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#ffc63d"/></svg>
+  <svg class="shape spin" style="top:8%;right:-20px;width:96px;opacity:.5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff" stroke="#083d23" stroke-width="3"/><polygon points="50,30 62,39 57,53 43,53 38,39" fill="#083d23"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Werkplekleren · cocreatie in de praktijk</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:760px">Theorie werd praktijk bij <span class="bb">BrightBoard</span>.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:760px;text-transform:uppercase">Theorie werd praktijk bij <span class="bb">BrightBoard</span>.</h2>
     <p class="lead reveal d2" style="margin-top:16px">Een speler in de (sport)evenementensector. Hier dook ik volledig in de digitale marketing en kreeg ik échte verantwoordelijkheid, van strategie tot uitvoering.</p>
- 
+
     <div class="grid reveal d2" style="grid-template-columns:repeat(3,1fr);margin-top:42px">
       <div class="card">
-        <div class="ic" style="background:rgba(45,75,255,.12)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4bff" stroke-width="2.2" stroke-linecap="round"><path d="M3 11l18-8-8 18-2-7-8-3z"/></svg>
+        <div class="ic" style="background:rgba(26,138,71,.14)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a8a47" stroke-width="2.2" stroke-linecap="round"><path d="M3 11l18-8-8 18-2-7-8-3z"/></svg>
         </div>
         <h3>Performance advertising</h3>
         <p>Campagnes opzetten, beheren en optimaliseren over meerdere kanalen heen.</p>
@@ -629,23 +609,23 @@
         </div>
       </div>
       <div class="card">
-        <div class="ic" style="background:rgba(19,204,161,.14)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#13cca1" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16v12H7l-3 3z"/></svg>
+        <div class="ic" style="background:rgba(54,217,126,.16)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0a8f73" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16v12H7l-3 3z"/></svg>
         </div>
         <h3>Social media beheer</h3>
         <p>Content plannen, posten en de community opvolgen. De stem van het merk online.</p>
         <div class="chips"><span class="chip"><span class="d" style="background:var(--mint)"></span>Content &amp; community</span></div>
       </div>
       <div class="card">
-        <div class="ic" style="background:rgba(255,78,58,.13)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff4e3a" stroke-width="2.2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        <div class="ic" style="background:rgba(230,57,70,.13)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2.2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
         </div>
         <h3>Recruitment, van A tot Z</h3>
         <p>Meerdere vacatures volledig zelf verwerkt, van opmaak tot selectie. Resultaat: een nieuwe collega.</p>
         <div class="chips"><span class="chip"><span class="d" style="background:var(--yellow)"></span>Van A tot Z zelf gerund</span></div>
       </div>
     </div>
- 
+
     <div class="insta-eyebrow reveal d3">
       <span class="ig-dot"></span>
       Instagram groeicijfers voor <span class="bb" style="margin-left:4px;text-transform:none;letter-spacing:0">BrightBoard</span>
@@ -674,18 +654,18 @@
     </div>
   </div>
 </section>
- 
-<!-- ============ PROJECT ============ -->
+
+<!-- ============ CONTENT (video's) ============ -->
 <section id="content" class="dark">
-  <svg class="shape float" style="top:10%;right:4%;width:110px;opacity:.12" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#ffc63d"/></svg>
-  <svg class="shape" style="bottom:6%;left:3%;width:70px;opacity:.1" viewBox="0 0 100 100"><path d="M40 0h20v40h40v20H60v40H40V60H0V40h40z" fill="#13cca1"/></svg>
+  <svg class="shape spin" style="top:10%;right:4%;width:96px;opacity:.12" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff" stroke="#36d97e" stroke-width="3"/><polygon points="50,30 62,39 57,53 43,53 38,39" fill="#36d97e"/></svg>
+  <svg class="shape" style="bottom:6%;left:3%;width:80px;opacity:.12" viewBox="0 0 100 100"><path d="M14 22h72v18H14z M14 22v56 M86 22v56 M14 40h72" fill="none" stroke="#36d97e" stroke-width="6" stroke-linejoin="round"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Mijn werk in beweging</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px">Content die resultaten haalt.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px;text-transform:uppercase">Content die resultaten haalt.</h2>
     <p class="lead reveal d2" style="margin-top:14px">Voorbeelden van video-content die ik maakte voor <span class="bb">BrightBoard</span>. Hover om te bekijken, klik voor geluid aan of uit.</p>
- 
+
     <div class="phone-grid reveal d2">
- 
+
       <div class="phone-wrap">
         <div class="phone">
           <div class="phone-pill"></div>
@@ -699,7 +679,7 @@
           <p>Sfeerbeelden van de Croky Cup Finale</p>
         </div>
       </div>
- 
+
       <div class="phone-wrap">
         <div class="phone">
           <div class="phone-pill"></div>
@@ -713,7 +693,7 @@
           <p>Sociale media at it's finest</p>
         </div>
       </div>
- 
+
       <div class="phone-wrap">
         <div class="phone">
           <div class="phone-pill"></div>
@@ -727,21 +707,22 @@
           <p>opbouw van de Croky Cup Finale</p>
         </div>
       </div>
- 
+
     </div>
     <p class="ofhint reveal d3" style="justify-content:center;margin-top:6px">Hover = preview starten &nbsp;·&nbsp; Klik = geluid aan of uit</p>
   </div>
 </section>
- 
+
+<!-- ============ PROJECT ============ -->
 <section id="project" style="background:var(--paper)">
-  <svg class="shape" style="bottom:6%;left:-20px;width:90px;opacity:.6" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0 L100 100 Z" fill="#2d4bff"/></svg>
+  <svg class="shape float" style="bottom:6%;left:-20px;width:80px;opacity:.6" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0" fill="none" stroke="#1a8a47" stroke-width="8"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Waar ik het meest trots op ben</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px">De website die <span class="bb">BrightBoards</span> marketing een <span style="color:var(--red)">level hoger</span> tilde.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px;text-transform:uppercase">De website die <span class="bb">BrightBoards</span> marketing een <span style="color:var(--red)">level hoger</span> tilde.</h2>
     <div class="project" style="margin-top:46px">
       <div class="browser reveal d1">
         <div class="bar">
-          <i style="background:#ff4e3a"></i><i style="background:#ffc63d"></i><i style="background:#13cca1"></i>
+          <i style="background:#e63946"></i><i style="background:#f4c430"></i><i style="background:#36d97e"></i>
           <span class="url">🔒 brightboard.marketing</span>
         </div>
         <div class="screen">
@@ -754,7 +735,7 @@
         </div>
       </div>
       <div class="reveal d2" style="display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-family:'Bricolage Grotesque';font-size:26px;margin-bottom:14px">Mijn eigen verwezenlijking</h3>
+        <h3 style="font-family:'Oswald';font-size:28px;margin-bottom:14px;text-transform:uppercase">Mijn eigen verwezenlijking</h3>
         <p style="color:var(--muted);font-size:16px;margin-bottom:18px">Geen oefenopdracht, maar een écht project dat live ging. Ik kreeg het vertrouwen om de <b style="color:var(--night)">Virtual Boarding Replacement</b> en de bredere marketing van <span class="bb">BrightBoard</span> te vertalen naar een professionele site, en ben er trots op dat het effectief draait.</p>
         <div class="chips" style="margin-bottom:24px">
           <span class="chip"><span class="d" style="background:var(--blue)"></span>Webdesign &amp; opbouw</span>
@@ -766,34 +747,40 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ============ STAGE / TESTIMONIALS ============ -->
 <section id="referenties" class="dark">
-  <svg class="shape float" style="top:10%;left:4%;width:90px;opacity:.1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
-  <svg class="shape" style="bottom:8%;right:5%;width:80px;opacity:.1" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d"/></svg>
+  <svg class="shape spin" style="top:10%;left:4%;width:80px;opacity:.1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff" stroke="#36d97e" stroke-width="3"/><polygon points="50,30 62,39 57,53 43,53 38,39" fill="#36d97e"/></svg>
+  <svg class="shape" style="bottom:8%;right:5%;width:80px;opacity:.1" viewBox="0 0 100 100"><path d="M14 22h72v18H14z M14 22v56 M86 22v56 M14 40h72" fill="none" stroke="#f4c430" stroke-width="6" stroke-linejoin="round"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Wat mijn collega's zeggen</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px">Geen woorden van mezelf, maar van het <span class="bb">BrightBoard</span>-team.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px;text-transform:uppercase">Geen woorden van mezelf, maar van het <span class="bb">BrightBoard</span>-team.</h2>
     <p class="lead reveal d2" style="margin-top:14px">Twee mensen waarmee ik tijdens mijn stage samenwerkte, over hoe ik in het team paste.</p>
- 
+
     <div class="tgrid reveal d2">
       <div class="tcard" style="--accent:var(--mint)">
         <span class="qmark">&ldquo;</span>
         <blockquote>Zijn verfrissende kijk op marketing en creativiteit, gecombineerd met commercieel inzicht en een &ldquo;no nonsense&rdquo;-mentaliteit, sluiten perfect aan bij waar we bij <span class="bb">BrightBoard</span> voor staan als bedrijf.</blockquote>
         <div class="twho">
-          <div class="tavatar" style="background-image:url(data:image/jpeg;base64,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)"></div>
+          <!-- FOTO RI VERSPECHT: vervang de regel hieronder door je originele foto uit je oude bestand:
+               <div class="tavatar" style="background-image:url(data:image/jpeg;base64,XXXX)"></div>
+               (kopieer de volledige base64-string van Ri uit je oorspronkelijke HTML) -->
+          <div class="tavatar" style="background:linear-gradient(135deg,#0c5230,#083d23)">RV</div>
           <div>
             <b>Ri Verspecht</b>
             <small>Partnership Manager Media &amp; VBR · BrightBoard</small>
           </div>
         </div>
       </div>
- 
+
       <div class="tcard" style="--accent:var(--red)">
         <span class="qmark">&ldquo;</span>
         <blockquote>Seth heeft bijzonder veel potentieel, door zijn diverse capaciteiten maar ook mede door de persoon die hij is.</blockquote>
         <div class="twho">
-          <div class="tavatar" style="background-image:url(data:image/jpeg;base64,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)"></div>
+          <!-- FOTO ANDY DE BONDT: vervang de regel hieronder door je originele foto uit je oude bestand:
+               <div class="tavatar" style="background-image:url(data:image/jpeg;base64,XXXX)"></div>
+               (kopieer de volledige base64-string van Andy uit je oorspronkelijke HTML) -->
+          <div class="tavatar" style="background:linear-gradient(135deg,#7a1d24,#3a0e12)">AB</div>
           <div>
             <b>Andy De Bondt</b>
             <small>Marketeer, Lead generator, Content Creator &amp; Designer · BrightBoard</small>
@@ -803,57 +790,61 @@
     </div>
   </div>
 </section>
- 
-<!-- ============ STERKTES ============ -->
+
+<!-- ============ STERKTES (squad cards) ============ -->
 <section id="sterktes">
-  <svg class="shape" style="top:10%;right:4%;width:70px;opacity:.7" viewBox="0 0 100 100"><path d="M40 0h20v40h40v20H60v40H40V60H0V40h40z" fill="#13cca1"/></svg>
+  <svg class="shape spin" style="top:10%;right:4%;width:64px;opacity:.6" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff" stroke="#36d97e" stroke-width="3"/><polygon points="50,30 62,39 57,53 43,53 38,39" fill="#36d97e"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Mijn sterke punten</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:740px">Wat ik meebreng naar elk team.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:740px;text-transform:uppercase">Mijn opstelling: wat ik meebreng.</h2>
     <div class="grid reveal d2" style="grid-template-columns:1fr 1fr;gap:50px;margin-top:46px;align-items:center">
       <div id="skills">
         <div class="strengths">
           <div class="strength" style="--accent:var(--blue)">
             <div class="snum">01</div>
+            <div class="pos">Spelverdeler</div>
             <b>Kritisch denken</b>
             <p>Ik kijk verder dan de opdracht en stel de juiste vragen voordat een beslissing valt.</p>
           </div>
           <div class="strength" style="--accent:var(--mint)">
             <div class="snum">02</div>
+            <div class="pos">Vrije rol</div>
             <b>Zelfstandigheid</b>
             <p>Geef me een doel en de ruimte, en ik vind zelf de weg naar het resultaat.</p>
           </div>
           <div class="strength" style="--accent:var(--red)">
             <div class="snum">03</div>
+            <div class="pos">Supersub</div>
             <b>Snel nieuwe tools leren</b>
             <p>Een nieuwe tool maak ik me razendsnel eigen, precies wat digitale marketing vraagt.</p>
           </div>
           <div class="strength" style="--accent:var(--yellow)">
             <div class="snum">04</div>
+            <div class="pos">Aanvoerder</div>
             <b>Leiding nemen in groep</b>
             <p>Wanneer een groep richting zoekt, durf ik de lijn uit te zetten.</p>
           </div>
         </div>
       </div>
       <div class="card" style="background:var(--night);color:#fff">
-        <div class="ic" style="background:rgba(255,198,61,.2)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffc63d" stroke-width="2.2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+        <div class="ic" style="background:rgba(244,196,48,.2)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f4c430" stroke-width="2.2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
         </div>
-        <h3 style="color:#fff">Mijn extra talent</h3>
-        <p style="color:#c8c8ee">Ik durf de leiding te nemen wanneer een groep richting zoekt, én ik maak me een nieuwe tool razendsnel eigen. Die combinatie van <b style="color:var(--mint)">zelfstandigheid</b> en <b style="color:var(--mint)">leergierigheid</b> is precies wat digitale marketing vandaag vraagt: het landschap verandert constant.</p>
+        <h3 style="color:#fff;text-transform:uppercase">Mijn extra talent</h3>
+        <p style="color:#bfe8cf">Ik durf de leiding te nemen wanneer een groep richting zoekt, én ik maak me een nieuwe tool razendsnel eigen. Die combinatie van <b style="color:var(--mint)">zelfstandigheid</b> en <b style="color:var(--mint)">leergierigheid</b> is precies wat digitale marketing vandaag vraagt: het landschap verandert constant.</p>
       </div>
     </div>
   </div>
 </section>
- 
-<!-- ============ KERNKWADRANT ============ -->
+
+<!-- ============ KERNKWADRANT (tactiekbord) ============ -->
 <section id="kernkwadrant" class="dark">
-  <svg class="shape" style="top:-30px;right:-30px;width:180px;opacity:.08" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
+  <svg class="shape spin" style="top:-20px;right:-20px;width:120px;opacity:.08" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff" stroke="#36d97e" stroke-width="3"/><polygon points="50,30 62,39 57,53 43,53 38,39" fill="#36d97e"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Zelfanalyse · het kernkwadrant van Ofman</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px">Mijn sterktes en valkuilen, eerlijk in kaart.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:820px;text-transform:uppercase">Mijn sterktes en valkuilen, eerlijk in kaart.</h2>
     <p class="lead reveal d2" style="margin-top:14px">Tik op een kwadrant om de samenhang te zien, van mijn kernkwaliteit tot wat me net niet ligt.</p>
- 
+
     <div class="ofwrap reveal d2">
       <div>
         <div class="quad" id="quad">
@@ -881,12 +872,12 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ============ REFLECTIE ============ -->
 <section id="reflectie" style="background:var(--paper)">
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Mijn werkpunt &amp; wat ik anders zou doen</span>
-    <h2 class="reveal d1" style="font-size:clamp(28px,4.4vw,46px);max-width:780px">Eerlijk: ik begon soms te laat.</h2>
+    <h2 class="reveal d1" style="font-size:clamp(28px,4.4vw,46px);max-width:780px;text-transform:uppercase">Eerlijk: ik begon soms te laat.</h2>
     <div class="reflect reveal d2" style="margin-top:40px">
       <div class="from">
         <div class="lab">Waar ik spijt van heb</div>
@@ -901,14 +892,14 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ============ TOEKOMST ============ -->
 <section id="toekomst">
-  <svg class="shape float" style="top:12%;right:5%;width:90px" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d" opacity=".8"/></svg>
+  <svg class="shape float" style="top:12%;right:5%;width:80px" viewBox="0 0 100 100"><path d="M14 22h72v18H14z M14 22v56 M86 22v56 M14 40h72" fill="none" stroke="#f4c430" stroke-width="6" stroke-linejoin="round" opacity=".8"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pill"></span>Wat brengt de toekomst?</span>
-    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:760px">Klaar om het werkveld in te stappen.</h2>
- 
+    <h2 class="reveal d1" style="font-size:clamp(30px,4.6vw,52px);max-width:760px;text-transform:uppercase">Klaar om het werkveld in te stappen.</h2>
+
     <div class="timeline reveal d2">
       <div class="tstep now">
         <div class="when">NU</div>
@@ -926,18 +917,18 @@
         <p>Een bedrijf zoals <span class="bb">BrightBoard</span>, waar events, energie en digitale marketing samenkomen. Daar voel ik me thuis.</p>
       </div>
     </div>
- 
+
     <div class="ideal reveal d2">
       <div class="card">
-        <div class="ic" style="background:rgba(45,75,255,.12)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4bff" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="ic" style="background:rgba(26,138,71,.14)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a8a47" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
         <h3>Mijn ideale functie</h3>
         <p>Alles wat met digitale marketing te maken heeft. Ik leer graag bij en wil blijven groeien in een rol die mee evolueert met het vak.</p>
       </div>
       <div class="card">
-        <div class="ic" style="background:rgba(19,204,161,.14)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#13cca1" stroke-width="2.2" stroke-linecap="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01"/></svg>
+        <div class="ic" style="background:rgba(54,217,126,.16)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0a8f73" stroke-width="2.2" stroke-linecap="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01"/></svg>
         </div>
         <h3>Het type bedrijf</h3>
         <p>De (sport)evenementensector spreekt me het meest aan, dynamisch, creatief en altijd in beweging, net als digitale marketing zelf.</p>
@@ -945,11 +936,11 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ============ CTA ============ -->
 <section id="contact">
-  <svg class="shape float" style="top:16%;left:8%;width:80px;opacity:.5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#13cca1"/></svg>
-  <svg class="shape float" style="bottom:14%;right:10%;width:70px;opacity:.5;animation-delay:1s" viewBox="0 0 100 100"><path d="M50 0 L100 100 L0 100 Z" fill="#ffc63d"/></svg>
+  <svg class="shape spin" style="top:16%;left:8%;width:70px;opacity:.5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#fff" stroke="#36d97e" stroke-width="3"/><polygon points="50,30 62,39 57,53 43,53 38,39" fill="#36d97e"/></svg>
+  <svg class="shape float" style="bottom:14%;right:10%;width:64px;opacity:.5;animation-delay:1s" viewBox="0 0 100 100"><path d="M0 100 A100 100 0 0 1 100 0" fill="none" stroke="#f4c430" stroke-width="8"/></svg>
   <div class="wrap">
     <span class="eyebrow reveal" style="color:var(--mint);justify-content:center;width:100%"><span class="pill"></span>Overtuigd?</span>
     <h2 class="reveal d1">Bij mij is alles <span class="co">co</span>:<br>laten we samenwerken.</h2>
@@ -960,13 +951,16 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="fgrid">
     <div class="fbrand">
-      <span class="mark"><span class="o">o</span>disee</span>
-      <p>Persoonlijke eindpitch van Seth Fordel, opgemaakt in de huisstijl van hogeschool Odisee, met behulp van Claude AI.</p>
+      <div class="fbrand-top">
+        <svg class="crest" viewBox="0 0 60 70"><use href="#sf-crest"/></svg>
+        <span class="fname">Seth Fordel</span>
+      </div>
+      <p>Persoonlijke eindpitch van Seth Fordel, opgemaakt in een eigen, voetbal-geïnspireerde stijl, met behulp van Claude AI.</p>
     </div>
     <div>
       <h4>Deze pitch</h4>
@@ -996,16 +990,16 @@
   </div>
   <div class="fbot">
     <span>© 2026 Seth Fordel · Graduaat Marketing- en communicatiesupport</span>
-    <span>Gemaakt in de huisstijl van hogeschool Odisee</span>
+    <span>Eigen matchday-stijl, geïnspireerd op het voetbal</span>
   </div>
 </footer>
- 
+
 <script>
 (function(){
   "use strict";
   var sections = ["start","mindset","werkplek","content","project","referenties","sterktes","kernkwadrant","toekomst","contact"];
   var labels   = ["Start","Mindset","Werkplek","Content","Project","Stage","Sterktes","Kernkwadrant","Toekomst","Recruteer"];
- 
+
   /* ---- scroll progress ---- */
   var prog = document.getElementById("progress");
   function onScroll(){
@@ -1014,7 +1008,7 @@
     prog.style.width = (sc*100) + "%";
   }
   window.addEventListener("scroll", onScroll, {passive:true});
- 
+
   /* ---- side dots ---- */
   var dotsWrap = document.getElementById("dots");
   sections.forEach(function(id,i){
@@ -1024,7 +1018,7 @@
     dotsWrap.appendChild(b);
   });
   var dotBtns = dotsWrap.querySelectorAll("button");
- 
+
   /* ---- active section tracking ---- */
   var navLinks = document.querySelectorAll("nav.main a");
   function setActive(idx){
@@ -1045,7 +1039,7 @@
   }, {rootMargin:"-45% 0px -45% 0px"});
   secEls.forEach(function(el){ spy.observe(el); });
   setActive(0);
- 
+
   /* ---- reveal on scroll ---- */
   var revObs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -1053,7 +1047,7 @@
     });
   }, {threshold:.18});
   document.querySelectorAll(".reveal:not(.in)").forEach(function(el){ revObs.observe(el); });
- 
+
   /* ---- counters ---- */
   function animateCount(el){
     var to = parseFloat(el.dataset.to);
@@ -1077,8 +1071,8 @@
     });
   }, {threshold:.6});
   document.querySelectorAll(".num[data-to]").forEach(function(el){ countObs.observe(el); });
- 
-  /* ---- skill bars ---- */
+
+  /* ---- skill bars (no-op als er geen .fill is) ---- */
   var skillObs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
@@ -1089,47 +1083,47 @@
   }, {threshold:.4});
   var skillsBox = document.getElementById("skills");
   if(skillsBox) skillObs.observe(skillsBox);
- 
- /* ---- Ofman quadrant ---- */
-var detail = {
-  kk:{ c:"#13cca1", t:"Zelfstandigheid", k:"Kernkwaliteit", rel:"Mijn natuurlijke kracht",
-    p:"Ik pak dingen zelf aan, neem de leiding wanneer een groep richting zoekt en maak me snel nieuwe tools eigen. Ik heb weinig sturing nodig om in beweging te komen, dat zag ik zowel in mijn opleiding als op de werkplek bij <span class='bb'>BrightBoard</span>.",
-    dark:true },
-  vk:{ c:"#ff4e3a", t:"Uitstelgedrag", k:"Valkuil", rel:"Teveel van mijn kernkwaliteit",
-    p:"Net omdat ik erop vertrouw dat ik het ‘wel zelf en op mijn tempo’ regel, begin ik soms te laat. Bij enkele vakken kostte me dat een tweedezit. Mijn zelfstandigheid slaat dan door naar uitstel." },
-  ud:{ c:"#2d4bff", t:"Stiptheid & structuur", k:"Uitdaging", rel:"Het positieve tegendeel van mijn valkuil",
-    p:"Mijn groei zit in op tijd beginnen, vooruit plannen en grote taken in kleinere stappen knippen. Niets is zo makkelijk als het lijkt, vroeg starten geeft me marge in plaats van stress. Ik gebruik mijn zelfstandigheid om eigen deadlines te zetten." },
-  al:{ c:"#7a3df0", t:"Starre controle", k:"Allergie", rel:"Teveel van mijn uitdaging",
-    p:"Waar ik me net aan stoor, is rigide micromanagement waarbij elke minuut wordt opgelegd. Mijn groei zit in zélf structuur kiezen, niet in opgelegde dwang. Een omgeving die vertrouwen geeft, haalt het beste in me naar boven." }
-};
 
-var ofdetail = document.getElementById("ofdetail");
-var qcells = document.querySelectorAll(".qcell");
+  /* ---- Ofman quadrant ---- */
+  var detail = {
+    kk:{ c:"#36d97e", t:"Zelfstandigheid", k:"Kernkwaliteit", rel:"Mijn natuurlijke kracht",
+      p:"Ik pak dingen zelf aan, neem de leiding wanneer een groep richting zoekt en maak me snel nieuwe tools eigen. Ik heb weinig sturing nodig om in beweging te komen, dat zag ik zowel in mijn opleiding als op de werkplek bij <span class='bb'>BrightBoard</span>.",
+      dark:true },
+    vk:{ c:"#e63946", t:"Uitstelgedrag", k:"Valkuil", rel:"Teveel van mijn kernkwaliteit",
+      p:"Net omdat ik erop vertrouw dat ik het ‘wel zelf en op mijn tempo’ regel, begin ik soms te laat. Bij enkele vakken kostte me dat een tweedezit. Mijn zelfstandigheid slaat dan door naar uitstel." },
+    ud:{ c:"#1a8a47", t:"Stiptheid & structuur", k:"Uitdaging", rel:"Het positieve tegendeel van mijn valkuil",
+      p:"Mijn groei zit in op tijd beginnen, vooruit plannen en grote taken in kleinere stappen knippen. Niets is zo makkelijk als het lijkt, vroeg starten geeft me marge in plaats van stress. Ik gebruik mijn zelfstandigheid om eigen deadlines te zetten." },
+    al:{ c:"#0a8f73", t:"Starre controle", k:"Allergie", rel:"Teveel van mijn uitdaging",
+      p:"Waar ik me net aan stoor, is rigide micromanagement waarbij elke minuut wordt opgelegd. Mijn groei zit in zélf structuur kiezen, niet in opgelegde dwang. Een omgeving die vertrouwen geeft, haalt het beste in me naar boven." }
+  };
 
-function showQ(key){
-  var d = detail[key];
-  var labelColor = d.dark ? "#0e3b30" : "#fff";
+  var ofdetail = document.getElementById("ofdetail");
+  var qcells = document.querySelectorAll(".qcell");
 
-  ofdetail.innerHTML =
-    '<span class="badge" style="background:'+d.c+';color:'+labelColor+'">'+d.k+'</span>'+
-    '<h3 style="color:'+d.c+'">'+d.t+'</h3>'+
-    '<div class="rel">'+d.rel+'</div>'+
-    '<p>'+d.p+'</p>';
+  function showQ(key){
+    var d = detail[key];
+    var labelColor = d.dark ? "#0e3b30" : "#fff";
+
+    ofdetail.innerHTML =
+      '<span class="badge" style="background:'+d.c+';color:'+labelColor+'">'+d.k+'</span>'+
+      '<h3 style="color:'+d.c+'">'+d.t+'</h3>'+
+      '<div class="rel">'+d.rel+'</div>'+
+      '<p>'+d.p+'</p>';
+
+    qcells.forEach(function(c){
+      c.classList.toggle("sel", c.dataset.q===key);
+    });
+  }
 
   qcells.forEach(function(c){
-    c.classList.toggle("sel", c.dataset.q===key);
+    c.addEventListener("click", function(){
+      showQ(c.dataset.q);
+    });
   });
-}
 
-qcells.forEach(function(c){
-  c.addEventListener("click", function(){
-    showQ(c.dataset.q);
-  });
-});
+  showQ("kk");
 
-showQ("kk");
- 
-  /* ---- keyboard navigation (great for live presenting) ---- */
+  /* ---- keyboard navigation (handig tijdens presenteren) ---- */
   function goTo(idx){
     idx = Math.max(0, Math.min(sections.length-1, idx));
     document.getElementById(sections[idx]).scrollIntoView({behavior:"smooth"});
@@ -1142,13 +1136,13 @@ showQ("kk");
     else if(e.key==="Home"){ e.preventDefault(); goTo(0); }
     else if(e.key==="End"){ e.preventDefault(); goTo(sections.length-1); }
   });
- 
+
   /* ---- mobile menu ---- */
   var burger = document.getElementById("burger");
   var nav = document.getElementById("nav");
   burger.addEventListener("click", function(){ nav.classList.toggle("open"); });
   nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ nav.classList.remove("open"); }); });
- 
+
   /* ---- hide header on scroll down, show on scroll up ---- */
   var lastY = 0, header = document.getElementById("header");
   window.addEventListener("scroll", function(){
@@ -1157,9 +1151,8 @@ showQ("kk");
     else { header.style.transform = "translateY(0)"; }
     lastY = y;
   }, {passive:true});
- 
- 
-  // ── Video phone interaction ──
+
+  /* ---- Video phone interaction ---- */
   document.querySelectorAll('.phone').forEach(function(ph, i){
     var vid = ph.querySelector('video');
     if(!vid) return;
@@ -1186,18 +1179,15 @@ showQ("kk");
       vid.muted = !vid.muted;
       showMuteBadge();
     });
-    // touch: tap to toggle play/pause
     ph.addEventListener('touchend', function(e){
       e.preventDefault();
       if(vid.paused){ vid.play().catch(function(){}); if(ov) ov.classList.add('hidden'); }
       else { vid.muted = !vid.muted; showMuteBadge(); }
     });
   });
- 
+
   onScroll();
 })();
 </script>
 </body>
 </html>
- 
-
